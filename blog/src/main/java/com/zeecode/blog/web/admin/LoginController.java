@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping(value = "/admin",method = {RequestMethod.POST})
+@RequestMapping("/admin")
 public class LoginController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class LoginController {
         return "admin/login";
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password,
                         HttpSession session, RedirectAttributes attributes){
         User user = userService.checkUser(username,password);
@@ -30,7 +30,7 @@ public class LoginController {
             session.setAttribute("user",user);
             return "admin/index";
         }else{
-            attributes.addFlashAttribute("message","用户名和密码错误！");
+            attributes.addFlashAttribute("message","用户名或密码错误！");
             return "redirect:/admin";
         }
     }

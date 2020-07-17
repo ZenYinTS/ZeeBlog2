@@ -15,7 +15,7 @@ import java.util.List;
 public class Blog {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String title;
     private String content;
     private String firstPicture;

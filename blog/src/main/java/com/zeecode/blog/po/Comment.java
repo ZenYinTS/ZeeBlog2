@@ -15,7 +15,7 @@ import java.util.List;
 public class Comment {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String nickname;
     private String email;
     private String content;

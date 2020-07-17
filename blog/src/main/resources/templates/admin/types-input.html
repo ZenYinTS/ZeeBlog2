@@ -4,20 +4,22 @@
 <head th:replace="admin/_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
-    <title>博客管理</title>
+    <title>新增分类</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
     <link rel="stylesheet" href="../../static/css/me.css">
 </head>
 
 <body>
     <!--导航-->
-    <nav th:replace="admin/_fragments :: menu(1)" class="ui inverted segment attached m-padded-tb-mini m-opacity-mini m-shadow-small">
+    <nav th:replace="admin/_fragments :: menu(2)" class="ui inverted segment attached m-padded-tb-mini m-opacity-mini m-shadow-small">
         <!-- 设计logo，太靠前，将菜单容器放入容器内 -->
         <div class="ui container">
             <div class="ui inverted secondary menu stackable">
                 <!-- 指定为菜单项item,m-item无意义，为了后续获取 -->
                 <h2 class="ui teal header item">管理后台</h2>
-                <a href="#" class="m-item item m-mobile-hide">博客<i class="small file alternate outline icon m-padded-lr-small"></i></a>
+                <a href="#" class="m-item item m-mobile-hide">博客<i
+                        class="small file alternate outline icon m-padded-lr-small"></i></a>
                 <a href="#" class="m-item item m-mobile-hide">分类<i class="small idea icon m-padded-lr-small"></i></a>
                 <a href="#" class="m-item item m-mobile-hide">标签<i class="small tags icon m-padded-lr-small"></i></a>
                 <div class="right menu m-mobile-hide">
@@ -39,85 +41,60 @@
             <i class="sidebar icon"></i>
         </a>
     </nav>
+
     <!-- 二级导航 -->
     <div class="ui menu m-opacity-mini attached pointing">
         <div class="ui container">
             <div class="right menu">
-                <a href="#" class="item">发布</a>
-                <a href="#" class="active teal item">列表</a>
+                <a href="#" th:href="@{/admin/types/input}" class="active teal item">新增</a>
+                <a href="#" th:href="@{/admin/types}" class="item">列表</a>
             </div>
         </div>
     </div>
 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <!-- 中间内容 -->
-    <div class="m-padded-tb-large m-opacity">
-        <div class="ui m-container">
-
-            <form action="#" method="post" class="ui form segment">
-                <div class="inline fields">
-                    <div class="field">
-                        <input type="text" name="title" placeholder="标题">
-                    </div>
-                    <div class="field">
-                        <div class="ui selection dropdown">
-                            <input type="hidden" name="type" />
-                            <i class="dropdown icon"></i>
-                            <div class="default text">分类</div>
-                            <div class="menu">
-                                <div class="item" data-value="1">开发者手册</div>
-                                <div class="item" data-value="2">错误日志</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="recommend" id="recommend" />
-                            <label for="recommend">推荐</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <button class="ui mini teal basic button"><i class="search icon"></i> 搜索</button>
+    <div class="m-container m-padded-tb-large m-opacity" style="max-width: 50em !important;">
+        <div class="ui container">
+            <form action="#" th:object="${type}"
+                  th:action="*{id}==null?@{/admin/types}:@{/admin/types/{id}(id=*{id})}"
+                  method="post" class="ui form">
+                <input type="hidden" th:value="*{id}" name="id"/>
+                <div class="field required">
+                    <div class="ui left labeled input">
+                        <label class="ui teal basic label">名称</label>
+                        <input type="text" name="name" placeholder="分类名称" th:value="*{name}" />
                     </div>
                 </div>
+
+                <div class="ui error message"></div>
+
+                <!--/*/
+                <div class = "ui negative message" th:if="${#fields.hasErrors('name')}">
+                    <i class= "close icon"></i>
+                    <div class = "header">验证失败</div>
+                    <p th:errors="*{name}">提交信息不符合规则</p>
+                </div>
+                /*/-->
+                <div class="ui container right aligned">
+                    <!-- type如果不传值，默认提交表单submit -->
+                    <button type="button" class="ui button m-margin-small" onclick="window.history.go(-1)">返回</button>
+                    <button class="ui teal button m-margin-small submit">提交</button>
+                </div>
             </form>
-            <table class="ui table celled">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>标题</th>
-                        <th>类型</th>
-                        <th>推荐</th>
-                        <th>更新时间</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>博客1</td>
-                        <td>认知升级</td>
-                        <td>是</td>
-                        <td>2017-10-02 09:45</td>
-                        <td>
-                            <a href="#" class="mini basic ui teal button">编辑</a>
-                            <a href="#" class="mini basic ui red button">删除</a>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <th colspan="6">
-                        <div class="ui pagination menu mini">
-                            <a class="item">上一页</a>
-                            <a class="item">下一页</a>
-                        </div>
-                        <div class="ui mini basic teal button right floated">新增</div>
-                    </th>
-                </tfoot>
-            </table>
         </div>
     </div>
-    <br>
-    <br>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
     <!-- 底部footer -->
     <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive m-opacity-mini">
@@ -151,7 +128,8 @@
                 <div class="seven wide column">
                     <h4 class="ui inverted header">ZeeCodeBlog</h4>
                     <div class="ui inverted link list">
-                        <p class="m-text-thin m-text-lined m-opacity-mini">这是我的个人博客，会分享关于编程、学习、思考的任何内容，希望可以给来到这的人有所帮助。</p>
+                        <p class="m-text-thin m-text-lined m-opacity-mini">这是我的个人博客，会分享关于编程、学习、思考的任何内容，希望可以给来到这的人有所帮助。
+                        </p>
                     </div>
                 </div>
             </div>
@@ -159,7 +137,6 @@
             <p class="m-text-thin m-text-lined m-opacity-tiny">Copyright © 2020 ZeeCodeBlog Designed by ZenYinTS</p>
         </div>
     </footer>
-
 
 
     <!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
@@ -170,10 +147,25 @@
     <script>
         $('.menu.toggle').click(function() {
             $('.m-item').toggleClass('m-mobile-hide');
-        })
-        $('.ui.dropdown').dropdown({
-            on: 'hover'
-        })
+        });
+
+        $(".ui.form").form({
+            fields: {
+                name: {
+                    identifier: 'name',
+                    rules: [{
+                        type: 'empty', //非空检测
+                        prompt: '请输入分类名称！' //提示信息
+                    }]
+                }
+            }
+        });
+        $('.message .close')
+            .on('click',function () {
+                $(this)
+                    .closest('.message')
+                    .transition('fade');
+            });
     </script>
 </body>
 

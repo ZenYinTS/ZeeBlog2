@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,8 @@ import java.util.List;
 public class Type {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
+    @NotBlank(message="分类名称不能为空！")
     private String name;
 
     //Type与Blog是一对多的关系，所以Type类中有多个Blog对象
