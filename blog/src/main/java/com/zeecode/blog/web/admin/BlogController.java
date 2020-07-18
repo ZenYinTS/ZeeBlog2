@@ -12,13 +12,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -57,6 +56,16 @@ public class BlogController {
         model.addAttribute("types",typeService.listType());    //初始化分类
         model.addAttribute("tags",tagService.listTag());    //初始化标签
         model.addAttribute("blog",new Blog());
+        return "admin/blogs-input";
+    }
+
+    @GetMapping("/blogs/{id}/input")
+    public String eidtInput(Model model,@PathVariable Long id) {
+        model.addAttribute("types",typeService.listType());    //初始化分类
+        model.addAttribute("tags",tagService.listTag());    //初始化标签
+        Blog blog = blogService.getBlog(id);
+        blog.init();    //目的是为了初始化tagIds
+        model.addAttribute("blog",blog);
         return "admin/blogs-input";
     }
 
