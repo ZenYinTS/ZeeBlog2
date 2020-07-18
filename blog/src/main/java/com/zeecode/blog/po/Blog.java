@@ -60,6 +60,7 @@ public class Blog {
 
     public void init(){
         this.tagIds = tagsToIds(this.getTags());
+        this.typeId = this.getType().getId();
     }
 
     //将一个tag数组转为1,2,3形式

@@ -33,11 +33,6 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.getOne(id);
     }
 
-    @Override
-    public Blog getBlogByTitle(String title) {
-        return blogRepository.findByTitle(title);
-    }
-
     @Transactional
     @Override
     public Page<Blog> listBlog(Pageable pageable, BlogQuery blogQuery) {

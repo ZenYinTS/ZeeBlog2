@@ -9,8 +9,6 @@ public interface BlogService {
 
     Blog getBlog(Long id);
 
-    Blog getBlogByTitle(String title);
-
     Page<Blog> listBlog(Pageable pageable, BlogQuery blogQuery);
 
     Blog saveBlog(Blog blog);
