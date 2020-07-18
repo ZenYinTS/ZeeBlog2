@@ -105,7 +105,7 @@
                     <div class="ui left labeled input action">
                         <label class="ui compact teal basic label">标签</label>
                         <!-- 标签设置多选，同时可以进行搜索，按照名称或data-value -->
-                        <div class="ui selection multiple search dropdown fluid">
+                        <div id="tag-dropdown" class="ui selection multiple search dropdown fluid">
                             <input type="hidden" name="tagIds" th:value="*{tagIds}"/>
                             <i class="dropdown icon"></i>
                             <div class="default text">标签</div>
@@ -282,6 +282,12 @@
         $("[name='published']").val(true);
         $("#blog-form").submit();
     });
+
+    $('#tag-dropdown')
+        .dropdown({
+            allowAdditions: true
+        })
+    ;
 </script>
 </body>
 

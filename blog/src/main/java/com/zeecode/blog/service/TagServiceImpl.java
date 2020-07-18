@@ -61,7 +61,18 @@ public class TagServiceImpl implements TagService {
         if (ids!=null&&!ids.isEmpty()){
             String[] idArray = ids.split(",");
             for (int i = 0; i < idArray.length; i++) {
-                list.add(new Long(idArray[i]));
+                try {
+                    Tag tag = tagRepository.findTagById(new Long(idArray[i]));
+                    if (tag==null){ //说明标签不存在
+                        throw new NumberFormatException();
+                    }
+                    list.add(new Long(idArray[i]));
+                }catch (NumberFormatException e){    //说明标签不存在
+                    Tag newTag = new Tag();
+                    newTag.setName(idArray[i]);
+                    tagRepository.save(newTag);
+                    list.add(tagRepository.findByName(idArray[i]).getId());
+                }
             }
         }
         return list;
