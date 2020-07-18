@@ -18,6 +18,7 @@ public class Comment {
     private Long id;
     private String nickname;
     private String email;
+    @Lob
     private String content;
     private String avator;
     @Temporal(TemporalType.TIMESTAMP)

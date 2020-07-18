@@ -43,8 +43,8 @@
     <div class="ui menu m-opacity-mini attached pointing">
         <div class="ui container">
             <div class="right menu">
-                <a href="#" class="item">发布</a>
-                <a href="#" class="active teal item">列表</a>
+                <a href="#" th:href="@{/admin/blogs/input}" class="item">发布</a>
+                <a href="#" th:href="@{/admin/blogs/input}" class="active teal item">列表</a>
             </div>
         </div>
     </div>
@@ -52,20 +52,22 @@
     <!-- 中间内容 -->
     <div class="m-padded-tb-large m-opacity">
         <div class="ui m-container">
-
-            <form action="#" method="post" class="ui form segment">
+<!--不使用form，采用div，在搜索时进行局部渲染-->
+            <div class="ui secondary form segment">
+<!--                创建隐含域，存放page参数-->
+                <input type="hidden" name="page"/>
                 <div class="inline fields">
                     <div class="field">
                         <input type="text" name="title" placeholder="标题">
                     </div>
                     <div class="field">
-                        <div class="ui selection dropdown">
-                            <input type="hidden" name="type" />
+                        <div class="ui search selection dropdown">
+                            <input type="hidden" name="typeId" />
                             <i class="dropdown icon"></i>
                             <div class="default text">分类</div>
                             <div class="menu">
-                                <div class="item" data-value="1">开发者手册</div>
-                                <div class="item" data-value="2">错误日志</div>
+                                <div th:each="type : ${types}" th:data-value="${type.id}" th:text="${type.name}"
+                                     class="item" data-value="1">开发者手册</div>
                             </div>
                         </div>
                     </div>
@@ -76,44 +78,51 @@
                         </div>
                     </div>
                     <div class="field">
-                        <button class="ui mini teal basic button"><i class="search icon"></i> 搜索</button>
+                        <button type="button" id="btnSearch" class="ui mini teal basic button"><i class="search icon"></i> 搜索</button>
                     </div>
                 </div>
-            </form>
-            <table class="ui table celled">
-                <thead>
+            </div>
+
+            <div id="table-container">
+                <table th:fragment="blogList" class="ui table celled">
+                    <thead>
                     <tr>
                         <th></th>
                         <th>标题</th>
                         <th>类型</th>
                         <th>推荐</th>
+                        <th>状态</th>
                         <th>更新时间</th>
                         <th>操作</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>博客1</td>
-                        <td>认知升级</td>
-                        <td>是</td>
-                        <td>2017-10-02 09:45</td>
+                    </thead>
+                    <tbody>
+                    <tr th:each="blog,iterStat : ${page.content}">
+                        <td th:text="${iterStat.count}">1</td>
+                        <td th:text="${blog.title}">博客1</td>
+                        <td th:text="${blog.type.name}">认知升级</td>
+                        <td th:text="${blog.recommend}?是:否">是</td>
+                        <td th:text="${blog.published}?发布:草稿">草稿</td>
+                        <td th:text="${blog.updateTime}">2017-10-02 09:45</td>
                         <td>
-                            <a href="#" class="mini basic ui teal button">编辑</a>
-                            <a href="#" class="mini basic ui red button">删除</a>
+                            <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="mini basic ui teal button">编辑</a>
+                            <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="mini basic ui red button">删除</a>
                         </td>
                     </tr>
-                </tbody>
-                <tfoot>
-                    <th colspan="6">
-                        <div class="ui pagination menu mini">
-                            <a class="item">上一页</a>
-                            <a class="item">下一页</a>
+                    </tbody>
+                    <tfoot>
+                    <th colspan="7">
+                        <div class="ui pagination menu mini" th:if="${page.totalPages}>1">
+                            <!--                            需要获取搜索条件，/admin/blogs(page=${page.number}-1)这种方式只可以传递页码，无法传递参数-->
+                            <!--                            若在地址后拼接字符串传递参数，需要拼接三个查询条件的参数，可读性差，且只适用于get方式，这里采用post方式-->
+                            <button onclick="page(this)" th:attr="data-page=${page.number}-1)" class="item" th:unless="${page.first}">上一页</button>
+                            <button onclick="page(this)" th:attr="data-page=${page.number}+1)" class="item" th:unless="${page.last}">下一页</button>
                         </div>
-                        <div class="ui mini basic teal button right floated">新增</div>
+                        <a th:href="@{/admin/blogs/input}" class="ui mini basic teal button right floated">新增</a>
                     </th>
-                </tfoot>
-            </table>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
     <br>
@@ -174,6 +183,26 @@
         $('.ui.dropdown').dropdown({
             on: 'hover'
         })
+        function page(btn) {
+            //获取上一页下一页中自定义的page属性值，赋值给隐含域
+           $("[name='page']").val($(obj).data("page"));
+            loadData();
+        }
+
+        //搜索按钮的点击事件
+        $("#btnSearch").click(function () {
+            loadData();
+
+        });
+
+        function loadData() {
+            $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
+                title:$("[name='title']").val(),
+                typeId:$("[name='typeId']").val(),
+                recommend:$("[name='recommend']").prop('checked'),
+                page:$("[name='page']").val()
+            });
+        }
     </script>
 </body>
 

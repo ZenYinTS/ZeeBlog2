@@ -45,16 +45,16 @@
     <div class="ui menu m-opacity-mini attached pointing">
         <div class="ui container">
             <div class="right menu">
-                <a href="#" class="active teal item">发布</a>
-                <a href="#" class="item">列表</a>
+                <a href="#" th:href="@{/admin/blogs/input}" class="active teal item">发布</a>
+                <a href="#" th:href="@{/admin/blogs}" class="item">列表</a>
             </div>
         </div>
     </div>
 
     <!-- 中间内容 -->
     <div class="m-padded-tb-large">
-        <div class="ui m-container">
-            <form action="#" action="post" class="ui form">
+        <div class="ui container">
+            <form action="#" method="post" class="ui form">
                 <div class="required field">
                     <div class="ui left labeled input">
                         <div class="ui selection dropdown compact teal basic label">
@@ -216,7 +216,8 @@
                 width: "100%",
                 height: 640,
                 syncScrolling: "single",
-                path: "../../static/lib/editormd/lib/"
+                // path: "../../static/lib/editormd/lib/"
+                path: "/lib/editormd/lib/"
             });
         });
 
