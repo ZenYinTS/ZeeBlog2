@@ -18,6 +18,8 @@ public class Comment {
     private Long id;
     private String nickname;
     private String email;
+
+    @Basic(fetch = FetchType.LAZY)
     @Lob
     private String content;
     private String avator;

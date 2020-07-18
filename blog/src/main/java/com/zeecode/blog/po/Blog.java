@@ -2,8 +2,10 @@ package com.zeecode.blog.po;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +19,8 @@ public class Blog {
     @GeneratedValue
     private Long id;
     private String title;
+
+    @Basic(fetch = FetchType.LAZY)
     @Lob
     private String content;
     private String firstPicture;
@@ -41,6 +45,11 @@ public class Blog {
     // 级联持久化（保存）操作（持久保存拥有方实体时，也会持久保存该实体的所有相关数据。）给当前设置的实体操作另一个实体的权限
     @ManyToMany(cascade = {CascadeType.PERSIST})
     private List<Tag> tags = new ArrayList<>();
+
+    @Transient
+    private String tagIds;
+    @Transient
+    private Long typeId;
 
     @ManyToOne
     private User user;

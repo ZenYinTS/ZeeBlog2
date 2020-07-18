@@ -60,15 +60,19 @@
                     <div class="field">
                         <input type="text" name="title" placeholder="标题">
                     </div>
+
                     <div class="field">
-                        <div class="ui search selection dropdown">
-                            <input type="hidden" name="typeId" />
-                            <i class="dropdown icon"></i>
-                            <div class="default text">分类</div>
-                            <div class="menu">
-                                <div th:each="type : ${types}" th:data-value="${type.id}" th:text="${type.name}"
-                                     class="item" data-value="1">开发者手册</div>
+                        <div class="ui labeled action input">
+                            <div class="ui type search selection dropdown">
+                                <input type="hidden" name="typeId" />
+                                <i class="dropdown icon"></i>
+                                <div class="default text">分类</div>
+                                <div class="menu">
+                                    <div th:each="type : ${types}" th:data-value="${type.id}" th:text="${type.name}"
+                                         class="item" data-value="1">开发者手册</div>
+                                </div>
                             </div>
+                            <button id="clear" class="ui compact button">clear</button>
                         </div>
                     </div>
                     <div class="field">
@@ -115,13 +119,19 @@
                         <div class="ui pagination menu mini" th:if="${page.totalPages}>1">
                             <!--                            需要获取搜索条件，/admin/blogs(page=${page.number}-1)这种方式只可以传递页码，无法传递参数-->
                             <!--                            若在地址后拼接字符串传递参数，需要拼接三个查询条件的参数，可读性差，且只适用于get方式，这里采用post方式-->
-                            <button onclick="page(this)" th:attr="data-page=${page.number}-1)" class="item" th:unless="${page.first}">上一页</button>
-                            <button onclick="page(this)" th:attr="data-page=${page.number}+1)" class="item" th:unless="${page.last}">下一页</button>
+                            <button onclick="page(this)" th:attr="data-page=${page.number}-1" class="mini item button" th:unless="${page.first}">上一页</button>
+                            <button onclick="page(this)" th:attr="data-page=${page.number}+1" class="mini item button" th:unless="${page.last}">下一页</button>
                         </div>
                         <a th:href="@{/admin/blogs/input}" class="ui mini basic teal button right floated">新增</a>
                     </th>
                     </tfoot>
                 </table>
+
+                <div class="ui violet message" th:unless="${#strings.isEmpty(message)}">
+                    <i class="close icon"></i>
+                    <div class="header">提示：</div>
+                    <p th:text="${message}">恭喜，操作成功！</p>
+                </div>
             </div>
         </div>
     </div>
@@ -185,14 +195,14 @@
         })
         function page(btn) {
             //获取上一页下一页中自定义的page属性值，赋值给隐含域
-           $("[name='page']").val($(obj).data("page"));
+           $("[name='page']").val($(btn).data("page"));
             loadData();
         }
 
         //搜索按钮的点击事件
         $("#btnSearch").click(function () {
+            $("[name='page']").val(0);
             loadData();
-
         });
 
         function loadData() {
@@ -203,6 +213,19 @@
                 page:$("[name='page']").val()
             });
         }
+        $('.message .close')
+            .on('click',function () {
+                $(this)
+                    .closest('.message')
+                    .transition('fade');
+            });
+        $('#clear')
+            .on('click', function() {
+                $('.type.ui.dropdown')
+                    .dropdown('clear')
+                ;
+            })
+        ;
     </script>
 </body>
 
