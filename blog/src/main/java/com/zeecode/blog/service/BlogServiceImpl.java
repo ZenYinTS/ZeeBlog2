@@ -5,6 +5,7 @@ import com.zeecode.blog.dao.BlogRepository;
 import com.zeecode.blog.po.Blog;
 import com.zeecode.blog.po.BlogQuery;
 import com.zeecode.blog.po.Type;
+import com.zeecode.blog.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,17 +45,17 @@ public class BlogServiceImpl implements BlogService {
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
                 //组合条件放在list中
                 List<Predicate> predicates = new ArrayList<>();
-                if (blogQuery.getTitle()!=null && !blogQuery.getTitle().trim().isEmpty()){    //查询的标题非空
+                if (blogQuery.getTitle() != null && !blogQuery.getTitle().trim().isEmpty()) {    //查询的标题非空
                     //构造like查询表达式，存放在list中，第一个参数是属性的名字，第二个参数是属性的值
                     //相当于where title like '%我的%';
-                    predicates.add(cb.like(root.<String>get("title"),"%"+blogQuery.getTitle()+"%"));
+                    predicates.add(cb.like(root.<String>get("title"), "%" + blogQuery.getTitle() + "%"));
                 }
-                if (blogQuery.getTypeId()!=null){
-                    predicates.add(cb.equal(root.<Type>get("type").get("id"),blogQuery.getTypeId()));
+                if (blogQuery.getTypeId() != null) {
+                    predicates.add(cb.equal(root.<Type>get("type").get("id"), blogQuery.getTypeId()));
                 }
                 //点了推荐才去构建查询条件
-                if (blogQuery.isRecommend()){
-                    predicates.add(cb.equal(root.<Boolean>get("recommend"),blogQuery.isRecommend()));
+                if (blogQuery.isRecommend()) {
+                    predicates.add(cb.equal(root.<Boolean>get("recommend"), blogQuery.isRecommend()));
                 }
                 //构造查询条件的where子句，需要传入数组
                 //集合转为数组toArray，转为对象数组需要传入对象数组参数，并指定大小
@@ -62,21 +63,16 @@ public class BlogServiceImpl implements BlogService {
 
                 return null;//不用管
             }
-        },pageable);    //第一个参数为Specification实现动态查询，第二个参数为pageable实现分页
+        }, pageable);    //第一个参数为Specification实现动态查询，第二个参数为pageable实现分页
     }
 
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
-        //新增的blog对象id为空
-        if (blog.getId()==null){
-            //初始化
-            blog.setCreateTime(new Date());
-            blog.setUpdateTime(new Date());
-            blog.setViews(0);
-        }else {
-            blog.setUpdateTime(new Date());    //编辑的只需要修改更新时间
-        }
+        //初始化
+        blog.setCreateTime(new Date());
+        blog.setUpdateTime(new Date());
+        blog.setViews(0);
         return blogRepository.save(blog);
     }
 
@@ -84,11 +80,12 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog updateBlog(Long id, Blog blog) {
         Blog b = blogRepository.getOne(id);
-        if (b==null){
+        if (b == null) {
             throw new NotFoundException("该博客不存在！");
         }
-        BeanUtils.copyProperties(blog,b);
-        return  blogRepository.save(b);
+        BeanUtils.copyProperties(blog, b, MyBeanUtils.getNullPropertyNames(blog));
+        b.setUpdateTime(new Date());    //编辑的只需要修改更新时间
+        return blogRepository.save(b);
     }
 
     @Transactional

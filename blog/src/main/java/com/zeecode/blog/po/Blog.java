@@ -2,10 +2,8 @@ package com.zeecode.blog.po;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +33,7 @@ public class Blog {
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
+    private String digest;    //博客简介
 
     //Blog与Type是多对一的关系，所以Blog类中有一个Type对象
     @ManyToOne

@@ -33,45 +33,45 @@ public class BlogController {
 
 
     @GetMapping("/blogs")
-    public String blogs(@PageableDefault(size = 2,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
-            BlogQuery blogQuery,
+    public String blogs(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+                        BlogQuery blogQuery,
                         Model model) {
         //在刚进入博客页面时，加载好分类列表
-        model.addAttribute("types",typeService.listType());
-        model.addAttribute("page",blogService.listBlog(pageable,blogQuery));
+        model.addAttribute("types", typeService.listType());
+        model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
         return "admin/blogs";
     }
 
     //实现部分渲染，只需要进行表格的渲染，无需更改搜索条件，所以不用渲染更改条件
     @PostMapping("/blogs/search")
-    public String search(@PageableDefault(size = 2,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          BlogQuery blogQuery,
                          Model model) {
-        model.addAttribute("page",blogService.listBlog(pageable,blogQuery));
+        model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
         return "admin/blogs :: blogList";
     }
 
     @GetMapping("/blogs/input")
     public String input(Model model) {
-        model.addAttribute("types",typeService.listType());    //初始化分类
-        model.addAttribute("tags",tagService.listTag());    //初始化标签
-        model.addAttribute("blog",new Blog());
+        model.addAttribute("types", typeService.listType());    //初始化分类
+        model.addAttribute("tags", tagService.listTag());    //初始化标签
+        model.addAttribute("blog", new Blog());
         return "admin/blogs-input";
     }
 
     @GetMapping("/blogs/{id}/input")
-    public String eidtInput(Model model,@PathVariable Long id) {
-        model.addAttribute("types",typeService.listType());    //初始化分类
-        model.addAttribute("tags",tagService.listTag());    //初始化标签
+    public String eidtInput(Model model, @PathVariable Long id) {
+        model.addAttribute("types", typeService.listType());    //初始化分类
+        model.addAttribute("tags", tagService.listTag());    //初始化标签
         Blog blog = blogService.getBlog(id);
         blog.init();    //目的是为了初始化tagIds
-        model.addAttribute("blog",blog);
+        model.addAttribute("blog", blog);
         return "admin/blogs-input";
     }
 
-    //新增时的提交
+    //新增与编辑时的提交
     @PostMapping("/blogs")
-    public String post(Blog blog, RedirectAttributes attributes, HttpSession session){
+    public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
         //初始化
         //设置当前登录用户
         blog.setUser((User) session.getAttribute("user"));
@@ -79,21 +79,26 @@ public class BlogController {
         blog.setType(typeService.getType(blog.getTypeId()));    //根据隐藏域里的type.id
         blog.setTags(tagService.listTag(blog.getTagIds()));    //可以使用session.getAttribute("tagIds")
 
-        Blog b = blogService.saveBlog(blog);
-        if(b==null){
+        Blog b;
+        if (blog.getId() == null) {
+            b = blogService.saveBlog(blog);
+        } else {
+            b = blogService.updateBlog(blog.getId(), blog);
+        }
+        if (b == null) {
             //保存失败
-            attributes.addFlashAttribute("message","操作失败！");
-        }else {
+            attributes.addFlashAttribute("message", "操作失败！");
+        } else {
             //保存成功
-            attributes.addFlashAttribute("message","操作成功！");
+            attributes.addFlashAttribute("message", "操作成功！");
         }
         return "redirect:/admin/blogs";
     }
 
     @GetMapping("/blogs/{id}/delete")
-    public String delete(@PathVariable Long id,RedirectAttributes attributes){
+    public String delete(@PathVariable Long id, RedirectAttributes attributes) {
         blogService.deleteBlog(id);
-        attributes.addFlashAttribute("message","删除成功！");
+        attributes.addFlashAttribute("message", "删除成功！");
         return "redirect:/admin/blogs";
     }
 
