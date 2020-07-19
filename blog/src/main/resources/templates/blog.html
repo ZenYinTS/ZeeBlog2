@@ -217,173 +217,178 @@
                     </div>
                 </div>
             </div>
-            <!-- 留言区域列表 -->
-            <div id="comment-container" class="ui bottom attached segment">
-                <div class="ui violet segment">
-                    <div class="ui threaded comments m-margin">
-                        <h3 class="ui dividing header">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">评论</font>
-                            </font>
-                        </h3>
-                        <div class="comment">
-                            <a class="avatar">
-                                <img src="https://picsum.photos/id/1/100/100">
-                            </a>
-                            <div class="content">
-                                <a class="author">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">马特</font>
-                                    </font>
+            <!-- 评论区 -->
+            <div class="ui bottom attached segment">
+                <!-- 留言区域列表 -->
+                <div id="comment-container" class="ui violet segment m-margin">
+                    <div th:fragment="commentList">
+                        <div class="ui threaded comments m-margin" style="max-width: 100%">
+                            <h3 class="ui dividing header">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">评论</font>
+                                </font>
+                            </h3>
+                            <div class="comment" th:each="comment : ${comments}">
+                                <a class="avatar">
+                                    <img th:src="@{${comment.avatar}}" style="max-width: 100px" src="https://picsum.photos/id/1/100/100">
                                 </a>
-                                <div class="metadata">
-                                    <span class="date">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">今天下午5:42</font>
-                                        </font>
-                                    </span>
-                                </div>
-                                <div class="text">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            多么艺术！
-                                        </font>
-                                    </font>
-                                </div>
-                                <div class="actions">
-                                    <a class="reply">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">回复</font>
-                                        </font>
+                                <div class="content">
+                                    <a class="author" th:text="${comment.nickname}">
+                                        马特
                                     </a>
+                                    <div class="metadata">
+                                    <span class="date"
+                                          th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}">
+                                        今天下午5:42
+                                    </span>
+                                    </div>
+                                    <div class="text" th:text="${comment.content}">
+                                        多么艺术！
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply" data-commentid="1"
+                                           data-commentnickname="Matt"
+                                           th:attr="data-commentid=${comment.id},
+                                        data-commentnickname=${comment.nickname}"
+                                           onclick="reply(this)">
+                                            回复
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="comment">
-                            <a class="avatar">
-                                <img src="https://picsum.photos/id/1/100/100">
-                            </a>
-                            <div class="content">
-                                <a class="author">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">傅</font>
-                                    </font>
+                            <!--/*-->
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="https://picsum.photos/id/1/100/100">
                                 </a>
-                                <div class="metadata">
+                                <div class="content">
+                                    <a class="author">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">傅</font>
+                                        </font>
+                                    </a>
+                                    <div class="metadata">
                                     <span class="date">
                                         <font style="vertical-align: inherit;">
                                             <font style="vertical-align: inherit;">昨天上午12:30</font>
                                         </font>
                                     </span>
-                                </div>
-                                <div class="text">
-                                    <p>
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">这对我的研究非常有用。</font>
-                                            <font style="vertical-align: inherit;">也谢谢！</font>
-                                        </font>
-                                    </p>
-                                </div>
-                                <div class="actions">
-                                    <a class="reply">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">回复</font>
-                                        </font>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comments">
-                                <div class="comment">
-                                    <a class="avatar">
-                                        <img src="https://picsum.photos/id/1/100/100">
-                                    </a>
-                                    <div class="content">
-                                        <a class="author">
+                                    </div>
+                                    <div class="text">
+                                        <p>
                                             <font style="vertical-align: inherit;">
-                                                <font style="vertical-align: inherit;">珍妮·赫斯（Jenny Hess）</font>
+                                                <font style="vertical-align: inherit;">这对我的研究非常有用。</font>
+                                                <font style="vertical-align: inherit;">也谢谢！</font>
+                                            </font>
+                                        </p>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">回复</font>
                                             </font>
                                         </a>
-                                        <div class="metadata">
+                                    </div>
+                                </div>
+                                <div class="comments">
+                                    <div class="comment">
+                                        <a class="avatar">
+                                            <img src="https://picsum.photos/id/1/100/100">
+                                        </a>
+                                        <div class="content">
+                                            <a class="author">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">珍妮·赫斯（Jenny Hess）</font>
+                                                </font>
+                                            </a>
+                                            <div class="metadata">
                                             <span class="date">
                                                 <font style="vertical-align: inherit;">
                                                     <font style="vertical-align: inherit;">现在</font>
                                                 </font>
                                             </span>
-                                        </div>
-                                        <div class="text">
-                                            <font style="vertical-align: inherit;">
+                                            </div>
+                                            <div class="text">
                                                 <font style="vertical-align: inherit;">
-                                                    艾略特，你总是很正确:)
+                                                    <font style="vertical-align: inherit;">
+                                                        艾略特，你总是很正确:)
+                                                    </font>
                                                 </font>
-                                            </font>
-                                        </div>
-                                        <div class="actions">
-                                            <a class="reply">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">回复</font>
-                                                </font>
-                                            </a>
+                                            </div>
+                                            <div class="actions">
+                                                <a class="reply">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">回复</font>
+                                                    </font>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="comment">
-                            <a class="avatar">
-                                <img src="https://picsum.photos/id/1/100/100">
-                            </a>
-                            <div class="content">
-                                <a class="author">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">乔·亨德森</font>
-                                    </font>
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="https://picsum.photos/id/1/100/100">
                                 </a>
-                                <div class="metadata">
+                                <div class="content">
+                                    <a class="author">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">乔·亨德森</font>
+                                        </font>
+                                    </a>
+                                    <div class="metadata">
                                     <span class="date">
                                         <font style="vertical-align: inherit;">
                                             <font style="vertical-align: inherit;">5天前</font>
                                         </font>
                                     </span>
-                                </div>
-                                <div class="text">
-                                    <font style="vertical-align: inherit;">
+                                    </div>
+                                    <div class="text">
                                         <font style="vertical-align: inherit;">
-                                            杜德，太棒了 </font>
-                                        <font style="vertical-align: inherit;">非常感谢
+                                            <font style="vertical-align: inherit;">
+                                                杜德，太棒了 </font>
+                                            <font style="vertical-align: inherit;">非常感谢
+                                            </font>
                                         </font>
-                                    </font>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">回复</font>
+                                            </font>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="actions">
-                                    <a class="reply">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">回复</font>
-                                        </font>
-                                    </a>
-                                </div>
+                            </div>
+                            <!--*/-->
+                        </div>
+                    </div>
+                </div>
+                <!-- 回复区域 -->
+                <div id="comment-form" class="ui form">
+                    <!--                            隐含域存放当前博客的id，针对某篇博客发表的评论需要获取到-->
+                    <input type="hidden" name="blog.id" th:value="${blog.id}">
+                    <!--                            还需要获取parentComment-->
+                    <input type="hidden" name="parentComment.id" value="-1">
+
+                    <div class="field m-margin">
+                        <textarea name="content" placeholder="输入评论内容..."></textarea>
+                    </div>
+                    <div class="fields">
+                        <div class="field m-mobile-wide m-margin">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="nickname" placeholder="昵称">
                             </div>
                         </div>
-                        <!-- 回复区域 -->
-                        <div class="ui form">
-                            <div class="field m-margin">
-                                <textarea name="content" placeholder="输入评论内容..."></textarea>
+                        <div class="field m-mobile-wide m-margin">
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                <input type="text" name="email" placeholder="邮箱">
                             </div>
-                            <div class="fields">
-                                <div class="field m-mobile-wide m-margin">
-                                    <div class="ui left icon input">
-                                        <i class="user icon"></i>
-                                        <input type="text" name="nickname" placeholder="昵称">
-                                    </div>
-                                </div>
-                                <div class="field m-mobile-wide m-margin">
-                                    <div class="ui left icon input">
-                                        <i class="mail icon"></i>
-                                        <input type="text" name="mail" placeholder="邮箱">
-                                    </div>
-                                </div>
-                                <div class="field m-mobile-wide m-margin">
-                                    <button class="ui violet button m-mobile-wide"><i class="edit icon"></i>发布</button>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="field m-mobile-wide m-margin">
+                            <button id="btnComment" type="button" class="ui violet button m-mobile-wide"><i class="edit icon"></i>评论</button>
                         </div>
                     </div>
                 </div>
@@ -521,6 +526,78 @@
                     }
                 }
             })
+
+            //评论表单验证
+            $('.ui.form').form({
+                fields:{
+                    content:{
+                        identifier:'content',
+                        rules:[{
+                            type:'empty',
+                            prompt:'请输入评论内容'
+                        }]
+                    },
+                    nickname:{
+                        identifier:'nickname',
+                        rules:[{
+                            type:'empty',
+                            prompt:'请输入昵称'
+                        }]
+                    },
+                    email:{
+                        identifier:'email',
+                        rules:[{
+                            type:'email',
+                            prompt:'请输入正确的邮箱地址'
+                        }]
+                    }
+                }
+            });
+            //使用ajax提交请求
+            $("#btnComment").click(function () {
+                //由于不是form表单提交了，所以需要显示调用校验
+                var boo = $('.ui.form').form('validate form');
+                if (boo){
+                    postData();
+                    console.log("校验成功");
+                }else {
+                    console.log("校验失败");
+                }
+            });
+
+            function postData() {
+                $("#comment-container").load(/*[[@{/comments}]]*/"",{
+                    "parentComment.id" : $("[name='parentComment.id']").val(),
+                    "blog.id" : $("[name='blog.id']").val(),
+                    "nickname" : $("[name='nickname']").val(),
+                    "email" : $("[name='email']").val(),
+                    "content" : $("[name='content']").val()
+                },function (responseTxt,statusTxt,xhr) {
+                    $(window).scrollTo($("#comment-container"),500);
+                    //提交成功后对内容进行清空
+                    clearContent();
+                });
+            }
+
+            function clearContent() {
+                $("[name='content']").val("");
+                //将父回复内容id再次变为-1
+                $("[name='parentComment.id']").val(-1);
+                //将placeholder还原
+                $("[name='content']").attr("placeholder","请输入评论内容...");
+
+            }
+
+            function reply(btn) {
+                var commentId = $(btn).data('commentid');    //这里自定义属性名不可以为大写，否则获取不到值
+                var commentNickname = $(btn).data('commentnickname');
+                //评论框的placeholder设置
+                $("[name='content']").attr("placeholder","@"+commentNickname+"：").focus();
+                //隐含域赋值
+                $("[name='parentComment.id']").val(commentId);
+                $(window).scrollTo($("#comment-form"),500);
+
+            }
         </script>
     </body>
 

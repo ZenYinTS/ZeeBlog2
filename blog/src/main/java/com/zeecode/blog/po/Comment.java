@@ -22,7 +22,7 @@ public class Comment {
     @Basic(fetch = FetchType.LAZY)
     @Lob
     private String content;
-    private String avator;
+    private String avatar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
