@@ -5,6 +5,7 @@ import com.zeecode.blog.dao.BlogRepository;
 import com.zeecode.blog.po.Blog;
 import com.zeecode.blog.po.BlogQuery;
 import com.zeecode.blog.po.Type;
+import com.zeecode.blog.util.MarkdownUtils;
 import com.zeecode.blog.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,19 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.getOne(id);
+    }
+
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogRepository.findById(id).orElse(null);
+        if (blog == null){
+            throw new NotFoundException("该博客不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog,b);
+        String content = b.getContent();
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        return b;
     }
 
     @Transactional
@@ -86,6 +100,7 @@ public class BlogServiceImpl implements BlogService {
         blog.setUpdateTime(new Date());
         blog.setViews(0);
         blog.setDigest("");
+        blog.setFlag("原创");
         return blogRepository.save(blog);
     }
 

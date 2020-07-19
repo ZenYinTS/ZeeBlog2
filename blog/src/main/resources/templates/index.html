@@ -252,28 +252,10 @@
                             </div>
                         </div>
                         <div class="ui segment blue">
-                            <a  th:each="tag : ${tags}" href="#" target="_blank" class="ui blue tag label m-margin m-text-thin">
+                            <a  th:each="tag : ${tags}" href="#" target="_blank" class="ui blue basic left pointing label m-margin">
                                 <span th:text="${tag.name}">方法论</span>
                                 <div class="detail" th:text="${#arrays.length(tag.blogs)}">13</div>
                             </a>
-
-                            <!--/*-->
-                            <a href="#" target="_blank" class="ui blue tag label m-margin-small">方法论
-                                <div class="detail">13</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui blue tag label m-margin-small">方法论
-                                <div class="detail">13</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui blue tag label m-margin-small">方法论
-                                <div class="detail">13</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui blue tag label m-margin-small">方法论
-                                <div class="detail">13</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui blue tag label m-margin-small">方法论
-                                <div class="detail">13</div>
-                            </a>
-                            <!--*/-->
                         </div>
                     </div>
                     <!--最新博客-->

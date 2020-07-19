@@ -24,7 +24,7 @@
 }
 
 .toc-list li a:hover {
-    color: teal;
+    color: cornflowerblue;
 }
 
 a.toc-link {
@@ -49,7 +49,7 @@ a.toc-link {
 
 .is-active-link {
     font-weight: 700 !important;
-    color: teal !important;
+    color: cornflowerblue !important;
 }
 
 .toc-link::before {
