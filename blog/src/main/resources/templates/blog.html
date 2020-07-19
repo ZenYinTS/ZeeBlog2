@@ -472,6 +472,11 @@
 
 
         <script th:inline="javascript">
+            //页面加载完成的同时也加载评论区信息
+            $(function () {
+                $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"comments/6");
+            });
+
             $('.menu.toggle').click(function() {
                 $('.m-item').toggleClass('m-mobile-hide');
             })
@@ -501,6 +506,7 @@
                 position: "left center"
             })
 
+            //此处需要获取到网页上设置的对象blog.id，需要在script中添加 th:inline="javascript"
             var serurl = "127.0.0.1:8080";
             var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
             var qrcode = new QRCode("wechatQR", {
