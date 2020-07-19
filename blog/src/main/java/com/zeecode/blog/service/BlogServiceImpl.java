@@ -9,7 +9,9 @@ import com.zeecode.blog.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -66,6 +68,11 @@ public class BlogServiceImpl implements BlogService {
         }, pageable);    //第一个参数为Specification实现动态查询，第二个参数为pageable实现分页
     }
 
+    @Override
+    public Page<Blog> listBlog(Pageable pageable) {
+        return blogRepository.findAll(pageable);
+    }
+
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
@@ -73,6 +80,7 @@ public class BlogServiceImpl implements BlogService {
         blog.setCreateTime(new Date());
         blog.setUpdateTime(new Date());
         blog.setViews(0);
+        blog.setDigest("");
         return blogRepository.save(blog);
     }
 
@@ -92,5 +100,13 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public void deleteBlog(Long id) {
         blogRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Blog> listRecommendBlogTop(Integer size) {
+
+        Sort sort = Sort.by(Sort.Direction.DESC,"updateTime");
+        Pageable pageable = PageRequest.of(0,size,sort);
+        return blogRepository.findTop(pageable);
     }
 }

@@ -6,7 +6,9 @@ import com.zeecode.blog.po.Tag;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -53,6 +55,13 @@ public class TagServiceImpl implements TagService {
     @Override
     public List<Tag> listTag(String ids) {//根据Long类型的list查找标签
         return tagRepository.findAllById(convertToList(ids));
+    }
+
+    @Override
+    public List<Tag> listTagTop(Integer size) {
+        Sort sort = Sort.by(Sort.Direction.DESC,"blogs.size");
+        Pageable pageable = PageRequest.of(0,size,sort);
+        return tagRepository.findTop(pageable);
     }
 
     //将1，2,3,字符串转为Long类型的list

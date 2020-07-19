@@ -12,6 +12,7 @@ public interface TypeService {
     Type getTypeByName(String name);    //根据名称查找分类
     Page<Type> listType(Pageable pageable);    //分页查询
     List<Type> listType();
+    List<Type> listTypeTop(Integer size);
     Type updateType(Long id,Type type);
     void deleteType(Long id);
 }

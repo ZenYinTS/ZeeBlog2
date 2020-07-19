@@ -16,7 +16,7 @@
     <div class="ui container">
         <div class="ui inverted secondary menu stackable">
             <!-- 指定为菜单项item,m-item无意义，为了后续获取 -->
-            <h2 class="ui teal header item">管理后台</h2>
+            <h2 class="ui blue header item">管理后台</h2>
             <a href="#" class="m-item item m-mobile-hide">博客<i class="small file alternate outline icon m-padded-lr-small"></i></a>
             <a href="#" class="m-item item m-mobile-hide">分类<i class="small idea icon m-padded-lr-small"></i></a>
             <a href="#" class="m-item item m-mobile-hide">标签<i class="small tags icon m-padded-lr-small"></i></a>
@@ -44,7 +44,7 @@
     <div class="ui container">
         <div class="right menu">
             <a href="#" th:href="@{/admin/tags/input}" class="item">新增</a>
-            <a href="#" th:href="@{/admin/tags}" class="active teal item">列表</a>
+            <a href="#" th:href="@{/admin/tags}" class="active blue item">列表</a>
         </div>
     </div>
 </div>
@@ -71,7 +71,7 @@
                 <td th:text="${iterStat.count}">1</td>
                 <td th:text="${tag.name}">标签1</td>
                 <td>
-                    <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="mini basic ui teal button">编辑</a>
+                    <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="mini basic ui blue button">编辑</a>
                     <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}" class="mini basic ui red button">删除</a>
                 </td>
             </tr>
@@ -83,7 +83,7 @@
                     <a th:href="@{/admin/tags(page=${page.number}+1)}" class="item" th:unless="${page.last}" >下一页</a>
                 </div>
                 <!--                        新增页面是一个新的页面，无需id-->
-                <a th:href="@{/admin/tags/input}" class="ui mini basic teal button right floated">新增</a>
+                <a th:href="@{/admin/tags/input}" class="ui mini basic blue button right floated">新增</a>
             </th>
             </tfoot>
         </table>

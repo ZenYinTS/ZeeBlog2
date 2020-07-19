@@ -16,7 +16,7 @@
     <div class="ui container">
         <div class="ui inverted secondary menu stackable">
             <!-- 指定为菜单项item,m-item无意义，为了后续获取 -->
-            <h2 class="ui teal header item">管理后台</h2>
+            <h2 class="ui blue header item">管理后台</h2>
             <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'">博客<i class="small file alternate outline icon m-padded-lr-small"></i></a>
             <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'">分类<i class="small idea icon m-padded-lr-small"></i></a>
             <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'">标签<i class="small tags icon m-padded-lr-small"></i></a>

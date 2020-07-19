@@ -17,7 +17,7 @@
         <div class="ui container">
             <div class="ui inverted secondary menu stackable">
                 <!-- 指定为菜单项item,m-item无意义，为了后续获取 -->
-                <h2 class="ui teal header item">管理后台</h2>
+                <h2 class="ui blue header item">管理后台</h2>
                 <a href="#" class="m-item item m-mobile-hide">博客<i
                         class="small file alternate outline icon m-padded-lr-small"></i></a>
                 <a href="#" class="m-item item m-mobile-hide">分类<i class="small idea icon m-padded-lr-small"></i></a>
@@ -46,7 +46,7 @@
     <div class="ui menu m-opacity-mini attached pointing">
         <div class="ui container">
             <div class="right menu">
-                <a href="#" th:href="@{/admin/types/input}" class="active teal item">新增</a>
+                <a href="#" th:href="@{/admin/types/input}" class="active blue item">新增</a>
                 <a href="#" th:href="@{/admin/types}" class="item">列表</a>
             </div>
         </div>
@@ -69,7 +69,7 @@
                 <input type="hidden" th:value="*{id}" name="id"/>
                 <div class="field required">
                     <div class="ui left labeled input">
-                        <label class="ui teal basic label">名称</label>
+                        <label class="ui blue basic label">名称</label>
                         <input type="text" name="name" placeholder="分类名称" th:value="*{name}" />
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="ui container right aligned">
                     <!-- type如果不传值，默认提交表单submit -->
                     <button type="button" class="ui button m-margin-small" onclick="window.history.go(-1)">返回</button>
-                    <button class="ui teal button m-margin-small submit">提交</button>
+                    <button class="ui blue button m-margin-small submit">提交</button>
                 </div>
             </form>
         </div>
