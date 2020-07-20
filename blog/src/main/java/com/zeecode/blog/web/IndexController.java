@@ -54,8 +54,5 @@ public class IndexController {
     public String about(){
         return "about";
     }
-    @GetMapping("/archive")
-    public String archive(){
-        return "archive";
-    }
+
 }

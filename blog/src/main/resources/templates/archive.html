@@ -49,59 +49,23 @@
                     </div>
                     <div class="right aligned column">
                         共
-                        <h2 class="ui orange header m-inline-block m-text-thin">114</h2>篇博客
+                        <h2 th:text="${blogCount}" class="ui orange header m-inline-block m-text-thin">114</h2>篇博客
                     </div>
                 </div>
             </div>
+            <th:block th:each="item : ${archiveMap}">
+                <h1 th:text="${item.key}" class="ui header center aligned inverted" style="font-family: 'Times New Roman', Times, serif;">2017</h1>
+                <div class="ui vertical menu fluid">
+                    <a th:href="@{/blog/{id}(id=${blog.id})}" href="#" target="_blank" class="item" th:each="blog : ${item.value}">
+                    <span>
+                        <i class="blue file alternate icon"></i><span th:text="${blog.title}">博客1</span>
+                        <div th:text="${#dates.format(blog.updateTime,'MM-dd')}" class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
+                    </span>
+                        <div th:text="${blog.flag}" class="ui orange basic label m-padded-mini m-text-thin">原创</div>
+                    </a>
+                </div>
+            </th:block>
 
-            <h1 class="ui header center aligned inverted" style="font-family: 'Times New Roman', Times, serif;">2017</h1>
-            <div class="ui vertical menu fluid">
-                <a href="#" target="_blank" class="item">
-                    <span>
-                        <i class="blue file alternate icon"></i>博客1
-                        <div class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                    <div class="ui orange basic label m-padded-mini m-text-thin">原创</div>
-                </a>
-                <a href="#" target="_blank" class="item">
-                    <span>
-                        <i class="blue file alternate icon"></i>博客1
-                        <div class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                    <div class="ui orange basic label m-padded-mini m-text-thin">原创</div>
-                </a>
-                <a href="#" target="_blank" class="item">
-                    <span>
-                        <i class="blue file alternate icon"></i>博客1
-                        <div class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                    <div class="ui orange basic label m-padded-mini m-text-thin">原创</div>
-                </a>
-            </div>
-            <h1 class="ui header center aligned inverted" style="font-family: 'Times New Roman', Times, serif;">2016</h1>
-            <div class="ui vertical menu fluid">
-                <a href="#" target="_blank" class="item">
-                    <span>
-                        <i class="blue file alternate icon"></i>博客1
-                        <div class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                    <div class="ui orange basic label m-padded-mini m-text-thin">原创</div>
-                </a>
-                <a href="#" target="_blank" class="item">
-                    <span>
-                        <i class="blue file alternate icon"></i>博客1
-                        <div class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                    <div class="ui orange basic label m-padded-mini m-text-thin">原创</div>
-                </a>
-                <a href="#" target="_blank" class="item">
-                    <span>
-                        <i class="blue file alternate icon"></i>博客1
-                        <div class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
-                    </span>
-                    <div class="ui orange basic label m-padded-mini m-text-thin">原创</div>
-                </a>
-            </div>
         </div>
     </div>
     <br>
