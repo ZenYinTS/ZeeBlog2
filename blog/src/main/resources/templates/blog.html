@@ -542,7 +542,7 @@
             })
 
             //此处需要获取到网页上设置的对象blog.id，需要在script中添加 th:inline="javascript"
-            var serurl = "127.0.0.1:8080";
+            var serurl =/*[[#{blog.serurl}]]*/ "127.0.0.1:8080";
             var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
             var qrcode = new QRCode("wechatQR", {
                 text: serurl+url,
@@ -598,11 +598,7 @@
             $("#btnComment").click(function () {
                 //由于不是form表单提交了，所以需要显示调用校验
                 var boo = $('.ui.form').form('validate form');
-                if (boo){
-                    postData();
-                    console.log("校验成功");
-                }else {
-                    console.log("校验失败");
+                if (boo) {
                 }
             });
 

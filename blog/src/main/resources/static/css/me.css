@@ -135,6 +135,10 @@ m-margin-bottom-small {
     line-height: 1.8;
 }
 
+.m-word-spacing{
+    word-spacing: 5px;
+}
+
 
 /*------------- opacity -----------*/
 
