@@ -255,6 +255,38 @@
                                         </a>
                                     </div>
                                 </div>
+<!--                                二级评论区-->
+                                <div class="comments" th:if="${#arrays.length(comment.replyComments)}>0">
+                                    <div class="comment" th:each="reply : ${comment.replyComments}">
+                                        <a class="avatar">
+                                            <img th:src="@{${reply.avatar}}" style="max-width: 100px" src="https://picsum.photos/id/1/100/100">
+                                        </a>
+                                        <div class="content">
+                                            <a class="author">
+                                                <span th:text="${reply.nickname}">马特</span>&nbsp;
+                                                <span th:text="|@ ${reply.parentComment.nickname}|" style="color: #268bd2">@ 小白</span>
+                                            </a>
+                                            <div class="metadata">
+                                    <span class="date"
+                                          th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">
+                                        今天下午5:42
+                                    </span>
+                                            </div>
+                                            <div class="text" th:text="${reply.content}">
+                                                多么艺术！
+                                            </div>
+                                            <div class="actions">
+                                                <a class="reply" data-commentid="1"
+                                                   data-commentnickname="Matt"
+                                                   th:attr="data-commentid=${comment.id},
+                                        data-commentnickname=${comment.nickname}"
+                                                   onclick="reply(this)">
+                                                    回复
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!--/*-->
                             <div class="comment">
@@ -579,7 +611,6 @@
                     "email" : $("[name='email']").val(),
                     "content" : $("[name='content']").val()
                 },function (responseTxt,statusTxt,xhr) {
-                    $(window).scrollTo($("#comment-container"),500);
                     //提交成功后对内容进行清空
                     clearContent();
                 });
