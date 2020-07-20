@@ -233,8 +233,9 @@
                                     <img th:src="@{${comment.avatar}}" style="max-width: 100px" src="https://picsum.photos/id/1/100/100">
                                 </a>
                                 <div class="content">
-                                    <a class="author" th:text="${comment.nickname}">
-                                        马特
+                                    <a class="author">
+                                        <span th:text="${comment.nickname}">马特</span>
+                                        <div  th:if="${comment.adminComment}" class="ui mini basic blue left pointing label m-padded-mini">博主</div>
                                     </a>
                                     <div class="metadata">
                                     <span class="date"
@@ -263,7 +264,9 @@
                                         </a>
                                         <div class="content">
                                             <a class="author">
-                                                <span th:text="${reply.nickname}">马特</span>&nbsp;
+                                                <span th:text="${reply.nickname}">马特</span>
+                                                <div th:if="${reply.adminComment}" class="ui mini basic blue left pointing label m-padded-mini">博主</div>
+                                                &nbsp;
                                                 <span th:text="|@ ${reply.parentComment.nickname}|" style="color: #268bd2">@ 小白</span>
                                             </a>
                                             <div class="metadata">
@@ -410,13 +413,13 @@
                         <div class="field m-mobile-wide m-margin">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="nickname" placeholder="昵称">
+                                <input th:value="${session.user}!=null?${session.user.nickname}" type="text" name="nickname" placeholder="昵称">
                             </div>
                         </div>
                         <div class="field m-mobile-wide m-margin">
                             <div class="ui left icon input">
                                 <i class="mail icon"></i>
-                                <input type="text" name="email" placeholder="邮箱">
+                                <input th:value="${session.user}!=null?${session.user.email}" type="text" name="email" placeholder="邮箱">
                             </div>
                         </div>
                         <div class="field m-mobile-wide m-margin">

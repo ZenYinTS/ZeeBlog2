@@ -1,6 +1,7 @@
 package com.zeecode.blog.web.admin;
 
 import com.zeecode.blog.po.Comment;
+import com.zeecode.blog.po.User;
 import com.zeecode.blog.service.BlogService;
 import com.zeecode.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class CommentController {
@@ -30,10 +33,17 @@ public class CommentController {
     }
 
     @PostMapping("/comments")
-    public String post(Comment comment){
+    public String post(Comment comment, HttpSession session){
         Long blogId = comment.getBlog().getId();
         comment.setBlog(blogService.getBlog(blogId));
-        comment.setAvatar(avatar);    //设置头像
+        User user = (User)session.getAttribute("user");
+        if (user != null){
+            comment.setAvatar(user.getAvatar());    //设置头像
+            comment.setAdminComment(true);
+        }else {
+            comment.setAvatar(avatar);    //设置头像
+            comment.setAdminComment(false);
+        }
         commentService.saveComment(comment);
         return "redirect:/comments/"+blogId;
     }

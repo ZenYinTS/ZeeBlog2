@@ -34,4 +34,7 @@ public class Comment {
     private List<Comment> replyComments = new ArrayList<>();
     @ManyToOne
     private Comment parentComment;    //可回复的相邻的父类只有一个
+
+    //标记是否为管理员
+    private boolean adminComment;
 }
