@@ -17,10 +17,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -85,11 +82,26 @@ public class BlogServiceImpl implements BlogService {
         }, pageable);    //第一个参数为Specification实现动态查询，第二个参数为pageable实现分页
     }
 
+    @Transactional
+    @Override
+    public Page<Blog> listBlog(Pageable pageable, Long tagId) {
+        return blogRepository.findAll(new Specification<Blog>() {
+            @Override
+            public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+                //关联查询，当前的blog关联另外一个tags属性
+                Join join = root.join("tags");
+                return cb.equal(join.get("id"),tagId);
+            }
+        }, pageable);
+    }
+
+    @Transactional
     @Override
     public Page<Blog> listBlog(Pageable pageable) {
         return blogRepository.findAll(pageable);
     }
 
+    @Transactional
     @Override
     public Page<Blog> listBlog(Pageable pageable, String query) {
         return blogRepository.findByQuery(query,pageable);
@@ -125,6 +137,7 @@ public class BlogServiceImpl implements BlogService {
         blogRepository.deleteById(id);
     }
 
+    @Transactional
     @Override
     public List<Blog> listRecommendBlogTop(Integer size) {
 
