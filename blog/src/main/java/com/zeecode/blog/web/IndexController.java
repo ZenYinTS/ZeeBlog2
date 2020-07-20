@@ -50,14 +50,6 @@ public class IndexController {
         model.addAttribute("blog",blogService.getAndConvert(id));
         return "blog";
     }
-    @GetMapping("/tags")
-    public String tags(){
-        return "tags";
-    }
-    @GetMapping("/types")
-    public String types(){
-        return "types";
-    }
     @GetMapping("/about")
     public String about(){
         return "about";

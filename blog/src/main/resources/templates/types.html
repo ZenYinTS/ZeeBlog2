@@ -49,52 +49,31 @@
                     </div>
                     <div class="right aligned column">
                         共
-                        <h2 class="ui orange header m-inline-block m-text-thin">14</h2>个
+                        <h2 th:text="${#arrays.length(types)}" class="ui orange header m-inline-block m-text-thin">14</h2>个
                     </div>
                 </div>
             </div>
             <div class="ui attached segment m-padded-tb-large">
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic blue button">思考与感悟</a>
-                    <div class="ui blue left pointing label">24</div>
-                </div>
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui left pointing label">24</div>
-                </div>
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui left pointing label">24</div>
-                </div>
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui left pointing label">24</div>
-                </div>
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui left pointing label">24</div>
-                </div>
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui left pointing label">24</div>
-                </div>
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui left pointing label">24</div>
-                </div>
-                <div class="ui labeled button m-margin-tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui left pointing label">24</div>
+                <div th:each="type : ${types}" class="ui labeled button m-margin-tiny">
+                    <a th:text="${type.name}" th:href="@{/types/{id}(id=${type.id})}"
+                       th:classappend="${type.id==activeTypeId}?'blue'"
+                       href="#" class="ui basic button">思考与感悟</a>
+                    <div th:text="${#arrays.length(type.blogs)}"
+                         th:classappend="${type.id==activeTypeId}?'blue'"
+                         class="ui left pointing label">24</div>
                 </div>
             </div>
             <!-- content -->
             <div class="ui blue top attached segment">
-                <div class="ui m-padded-large segment vertical m-mobile-lr-clear">
-                    <div class="ui grid mobile reversed stackable">
+                <div class="ui segment m-padded-large vertical"th:each="blog :${page.content}" >
+                    <div class="ui grid mobile reversed stackable middle aligned">
                         <div class="eleven wide column">
-                            <h3 class="ui header">堪比科幻大片！优酷特效广告、互动视频技术大揭秘</h3>
-                            <p class="m-text">
-                                大家都看过科幻电影吧，像《头号玩家》、《美国队长》、《银河护卫队》，这些科幻电影中都出现过AR/VR的镜头。以《头号玩家》为例，主角来到博物馆，能够实时的、多角度地去浏览资料，这里就用到了volumetric video技术，它是一种VR技术，就是在被摄...
+                            <!--                                    标题-->
+                            <h3 class="ui header">
+                                <a  th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" th:text="${blog.title}" href="#" class="m-black">堪比科幻大片！优酷特效广告、互动视频技术大揭秘</a>
+                            </h3>
+                            <!--                                    博客简介:th:text中的|.....|起到连接字符串作用，使用后简介才可以与省略号进行拼接-->
+                            <p th:text="|${blog.digest}......|" class="m-text">大家都看过科幻电影吧，像《头号玩家》、《美国队长》、《银河护卫队》，这些科幻电影中都出现过AR/VR的镜头。以《头号玩家》为例，主角来到博物馆，能够实时的、多角度地去浏览资料，这里就用到了volumetric video技术，它是一种VR技术，就是在被摄...
                             </p>
                             <div class="ui grid stackable">
                                 <div class="eleven wide column">
@@ -102,116 +81,50 @@
                                     <div class="ui mini horizontal link list">
                                         <div class="item">
                                             <!--头像-->
-                                            <img src="https://picsum.photos/id/1/100/100" alt="" class="ui avatar image" />
+                                            <img th:src="@{${blog.user.avatar}}" src="https://picsum.photos/id/1/100/100" alt="" class="ui avatar image" />
+                                            <!--                                                    昵称-->
                                             <div class="content">
-                                                <a href="#" class="header">臻尹</a>
+                                                <a th:text="${blog.user.nickname}" href="#" class="header">臻尹</a>
                                             </div>
                                         </div>
+                                        <!--                                                日期-->
                                         <div class="item">
-                                            <i class="calendar icon"></i> 2017-10-01
+                                            <i class="calendar icon"></i>
+                                            <!--                                                    日期格式化-->
+                                            <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">
+                                                        2017-10-01
+                                                    </span>
                                         </div>
+                                        <!--                                                浏览次数-->
                                         <div class="item">
-                                            <i class="eye icon"></i> 2342
+                                            <i class="eye icon"></i>
+                                            <span th:text="${blog.views}">2342</span>
                                         </div>
                                     </div>
                                 </div>
+                                <!--                                        分类-->
                                 <div class="five wide column right aligned">
-                                    <a href="#" class="ui label blue basic m-padded-tiny m-text-thin">认知升级</a>
+                                    <a th:text="${blog.type.name}" href="#" class="ui label blue basic m-padded-tiny m-text-thin">认知升级</a>
                                 </div>
                             </div>
                         </div>
+                        <!--                                首图-->
                         <div class="five wide column right aligned">
-                            <a href="#" target="_blank">
-                                <img src="https://picsum.photos/id/1/800/400" alt="" class="ui rounded image" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui m-padded-large segment vertical m-mobile-lr-clear">
-                    <div class="ui grid mobile reversed stackable">
-                        <div class="eleven wide column">
-                            <h3 class="ui header">堪比科幻大片！优酷特效广告、互动视频技术大揭秘</h3>
-                            <p class="m-text">
-                                大家都看过科幻电影吧，像《头号玩家》、《美国队长》、《银河护卫队》，这些科幻电影中都出现过AR/VR的镜头。以《头号玩家》为例，主角来到博物馆，能够实时的、多角度地去浏览资料，这里就用到了volumetric video技术，它是一种VR技术，就是在被摄...
-                            </p>
-                            <div class="ui grid stackable">
-                                <div class="eleven wide column">
-                                    <!--水平放置-->
-                                    <div class="ui mini horizontal link list">
-                                        <div class="item">
-                                            <!--头像-->
-                                            <img src="https://picsum.photos/id/1/100/100" alt="" class="ui avatar image" />
-                                            <div class="content">
-                                                <a href="#" class="header">臻尹</a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <i class="calendar icon"></i> 2017-10-01
-                                        </div>
-                                        <div class="item">
-                                            <i class="eye icon"></i> 2342
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column right aligned">
-                                    <a href="#" class="ui label blue basic m-padded-tiny m-text-thin">认知升级</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="five wide column right aligned">
-                            <a href="#" target="_blank">
-                                <img src="https://picsum.photos/id/1/800/400" alt="" class="ui rounded image" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui m-padded-large segment vertical m-mobile-lr-clear">
-                    <div class="ui grid mobile reversed stackable">
-                        <div class="eleven wide column">
-                            <h3 class="ui header">堪比科幻大片！优酷特效广告、互动视频技术大揭秘</h3>
-                            <p class="m-text">
-                                大家都看过科幻电影吧，像《头号玩家》、《美国队长》、《银河护卫队》，这些科幻电影中都出现过AR/VR的镜头。以《头号玩家》为例，主角来到博物馆，能够实时的、多角度地去浏览资料，这里就用到了volumetric video技术，它是一种VR技术，就是在被摄...
-                            </p>
-                            <div class="ui grid stackable">
-                                <div class="eleven wide column">
-                                    <!--水平放置-->
-                                    <div class="ui mini horizontal link list">
-                                        <div class="item">
-                                            <!--头像-->
-                                            <img src="https://picsum.photos/id/1/100/100" alt="" class="ui avatar image" />
-                                            <div class="content">
-                                                <a href="#" class="header">臻尹</a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <i class="calendar icon"></i> 2017-10-01
-                                        </div>
-                                        <div class="item">
-                                            <i class="eye icon"></i> 2342
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column right aligned">
-                                    <a href="#" class="ui label blue basic m-padded-tiny m-text-thin">认知升级</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="five wide column right aligned">
-                            <a href="#" target="_blank">
-                                <img src="https://picsum.photos/id/1/800/400" alt="" class="ui rounded image" />
+                            <a href="#" target="_blank" th:href="@{/blog/{id}(id=${blog.id})}">
+                                <img th:src="${blog.firstPicture}" src="https://picsum.photos/id/1/800/400" alt="" class="ui rounded image" />
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- footer -->
-            <div class="ui bottom attached segment">
+            <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
                 <div class="ui middle aligned two column grid">
                     <div class="column">
-                        <button class="ui mini blue basic circular button">上一页</button>
+                        <a th:href="@{/(page=${page.number}-1)}" class="ui mini blue basic circular button">上一页</a>
                     </div>
                     <div class="right aligned column">
-                        <button href="#" class="ui mini blue basic circular button">下一页</button>
+                        <a th:href="@{/(page=${page.number}+1)}" href="#" class="ui mini blue basic circular button">下一页</a>
                     </div>
                 </div>
             </div>

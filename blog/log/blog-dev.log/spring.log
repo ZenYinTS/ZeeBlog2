@@ -2459,3 +2459,640 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2020-07-20 21:15:43.279  INFO 67200 --- [http-nio-8080-exec-5] com.zeecode.blog.aspect.LogAspect        : Result:index
 2020-07-20 21:15:46.005  INFO 67200 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/blog/40, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.blog, args=[40, {}])
 2020-07-20 21:15:46.065  INFO 67200 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:blog
+2020-07-20 21:20:17.087  INFO 74152 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 74152 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:20:17.087 DEBUG 74152 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:20:17.087  INFO 74152 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:20:17.134  INFO 74152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:20:17.134  INFO 74152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:20:18.055  INFO 74152 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:20:18.165  INFO 74152 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94ms. Found 5 JPA repository interfaces.
+2020-07-20 21:20:18.993  INFO 74152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:20:18.993  INFO 74152 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:20:18.993  INFO 74152 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:20:19.180  INFO 74152 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:20:19.180  INFO 74152 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2046 ms
+2020-07-20 21:20:19.352  INFO 74152 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:20:19.399  INFO 74152 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:20:19.461  INFO 74152 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:20:19.555  WARN 74152 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:20:19.633  INFO 74152 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:20:19.742  INFO 74152 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:20:19.742  WARN 74152 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:20:19.867  INFO 74152 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:20:19.899  INFO 74152 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:20:19.946  INFO 74152 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:20:20.508  INFO 74152 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:20:20.555  INFO 74152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:20:20.555  INFO 74152 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:20:20.945  INFO 74152 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:20:20.945  INFO 74152 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:20:21.680  INFO 74152 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:20:21.680  INFO 74152 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.271 seconds (JVM running for 7.124)
+2020-07-20 21:21:03.459  INFO 74152 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:21:03.460  INFO 74152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:21:03.474  INFO 74152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-07-20 21:21:10.930  INFO 74152 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.index, args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}])
+2020-07-20 21:21:11.056  WARN 74152 --- [http-nio-8080-exec-10] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:21:11.072  WARN 74152 --- [http-nio-8080-exec-10] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:21:11.081  INFO 74152 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Result:index
+2020-07-20 21:21:15.171  INFO 74152 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/type, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.types, args=[])
+2020-07-20 21:21:15.171  INFO 74152 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:21:16.758  INFO 74152 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/tag, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.tags, args=[])
+2020-07-20 21:21:16.758  INFO 74152 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Result:tags
+2020-07-20 21:21:18.466  INFO 74152 --- [http-nio-8080-exec-3] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/archive, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.archive, args=[])
+2020-07-20 21:21:18.467  INFO 74152 --- [http-nio-8080-exec-3] com.zeecode.blog.aspect.LogAspect        : Result:archive
+2020-07-20 21:21:20.347  INFO 74152 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/about, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.about, args=[])
+2020-07-20 21:21:20.347  INFO 74152 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Result:about
+2020-07-20 21:21:26.964  INFO 74152 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.index, args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}])
+2020-07-20 21:21:26.985  INFO 74152 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:index
+2020-07-20 21:21:29.160  INFO 74152 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/type, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.types, args=[])
+2020-07-20 21:21:29.161  INFO 74152 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:21:33.924  INFO 74152 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/tag, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.tags, args=[])
+2020-07-20 21:21:33.925  INFO 74152 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Result:tags
+2020-07-20 21:21:35.081  INFO 74152 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/archive, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.archive, args=[])
+2020-07-20 21:21:35.081  INFO 74152 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Result:archive
+2020-07-20 21:21:37.794  INFO 74152 --- [http-nio-8080-exec-3] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.index, args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}])
+2020-07-20 21:21:37.813  INFO 74152 --- [http-nio-8080-exec-3] com.zeecode.blog.aspect.LogAspect        : Result:index
+2020-07-20 21:21:40.146  INFO 74152 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/blog/40, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.blog, args=[40, {}])
+2020-07-20 21:21:40.283  INFO 74152 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Result:blog
+2020-07-20 21:46:00.086  INFO 76240 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 76240 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:46:00.086 DEBUG 76240 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:46:00.086  INFO 76240 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:46:00.149  INFO 76240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:46:00.149  INFO 76240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:46:01.069  INFO 76240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:46:01.163  INFO 76240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92ms. Found 5 JPA repository interfaces.
+2020-07-20 21:46:02.006  INFO 76240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:46:02.006  INFO 76240 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:46:02.006  INFO 76240 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:46:02.194  INFO 76240 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:46:02.194  INFO 76240 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2045 ms
+2020-07-20 21:46:02.350  INFO 76240 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:46:02.413  INFO 76240 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:46:02.459  INFO 76240 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:46:02.569  WARN 76240 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:46:02.631  INFO 76240 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:46:02.741  INFO 76240 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:46:02.741  WARN 76240 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:46:02.881  INFO 76240 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:46:02.897  INFO 76240 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:46:02.944  INFO 76240 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:46:03.506  INFO 76240 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:46:03.553  INFO 76240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:46:03.553  INFO 76240 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:46:04.100  INFO 76240 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:46:04.115  INFO 76240 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:46:04.850  INFO 76240 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:46:04.865  INFO 76240 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.542 seconds (JVM running for 7.544)
+2020-07-20 21:46:14.174  INFO 76240 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:46:14.175  INFO 76240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:46:14.189  INFO 76240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-07-20 21:46:14.236  INFO 76240 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/blog/40, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.blog, args=[40, {}])
+2020-07-20 21:46:14.434  INFO 76240 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:blog
+2020-07-20 21:46:45.786  INFO 70568 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 70568 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:46:45.801 DEBUG 70568 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:46:45.801  INFO 70568 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:46:45.864  INFO 70568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:46:45.864  INFO 70568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:46:46.832  INFO 70568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:46:46.957  INFO 70568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103ms. Found 5 JPA repository interfaces.
+2020-07-20 21:46:47.801  INFO 70568 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:46:47.817  INFO 70568 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:46:47.817  INFO 70568 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:46:47.988  INFO 70568 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:46:47.988  INFO 70568 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2124 ms
+2020-07-20 21:46:48.160  INFO 70568 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:46:48.223  INFO 70568 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:46:48.270  INFO 70568 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:46:48.379  WARN 70568 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:46:48.441  INFO 70568 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:46:48.551  INFO 70568 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:46:48.551  WARN 70568 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:46:48.691  INFO 70568 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:46:48.723  INFO 70568 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:46:48.769  INFO 70568 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:46:49.332  INFO 70568 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:46:49.394  INFO 70568 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:46:49.394  INFO 70568 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:46:49.675  INFO 70568 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:46:49.675  INFO 70568 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:46:50.394  INFO 70568 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:46:50.410  INFO 70568 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.418 seconds (JVM running for 7.602)
+2020-07-20 21:47:04.946  INFO 70568 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:47:04.947  INFO 70568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:47:04.962  INFO 70568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-07-20 21:47:04.999  INFO 70568 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.index, args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}])
+2020-07-20 21:47:05.122  WARN 70568 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:47:05.137  WARN 70568 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:47:05.146  INFO 70568 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:index
+2020-07-20 21:48:07.583  INFO 75444 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 75444 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:48:07.583 DEBUG 75444 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:48:07.583  INFO 75444 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:48:07.645  INFO 75444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:48:07.645  INFO 75444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:48:08.565  INFO 75444 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:48:08.674  INFO 75444 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97ms. Found 5 JPA repository interfaces.
+2020-07-20 21:48:09.612  INFO 75444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:48:09.627  INFO 75444 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:48:09.627  INFO 75444 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:48:09.815  INFO 75444 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:48:09.815  INFO 75444 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2170 ms
+2020-07-20 21:48:10.002  INFO 75444 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:48:10.065  INFO 75444 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:48:10.127  INFO 75444 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:48:10.221  WARN 75444 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:48:10.283  INFO 75444 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:48:10.393  INFO 75444 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:48:10.393  WARN 75444 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:48:10.534  INFO 75444 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:48:10.549  INFO 75444 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:48:10.596  INFO 75444 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:48:11.214  INFO 75444 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:48:11.293  INFO 75444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:48:11.293  INFO 75444 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:48:11.591  INFO 75444 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:48:11.593  INFO 75444 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:48:12.406  INFO 75444 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:48:12.406  INFO 75444 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.489 seconds (JVM running for 7.495)
+2020-07-20 21:48:14.840  INFO 75444 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:48:14.840  INFO 75444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:48:14.853  INFO 75444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-07-20 21:48:17.013  INFO 75444 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.index, args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}])
+2020-07-20 21:48:17.144  WARN 75444 --- [http-nio-8080-exec-8] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:48:17.159  WARN 75444 --- [http-nio-8080-exec-8] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:48:17.169  INFO 75444 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Result:index
+2020-07-20 21:48:20.538  INFO 75444 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.index, args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}])
+2020-07-20 21:48:20.558  INFO 75444 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Result:index
+2020-07-20 21:48:24.031  INFO 75444 --- [http-nio-8080-exec-5] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/, ip=127.0.0.1, classMethod=com.zeecode.blog.web.IndexController.index, args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}])
+2020-07-20 21:48:24.048  INFO 75444 --- [http-nio-8080-exec-5] com.zeecode.blog.aspect.LogAspect        : Result:index
+2020-07-20 21:49:22.232  INFO 39636 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 39636 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:49:22.232 DEBUG 39636 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:49:22.232  INFO 39636 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:49:22.295  INFO 39636 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:49:22.295  INFO 39636 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:49:23.344  INFO 39636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:49:23.454  INFO 39636 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95ms. Found 5 JPA repository interfaces.
+2020-07-20 21:49:24.282  INFO 39636 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:49:24.282  INFO 39636 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:49:24.297  INFO 39636 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:49:24.438  INFO 39636 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:49:24.438  INFO 39636 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2143 ms
+2020-07-20 21:49:24.672  INFO 39636 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:49:24.719  INFO 39636 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:49:24.781  INFO 39636 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:49:24.875  WARN 39636 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:49:24.938  INFO 39636 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:49:25.047  INFO 39636 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:49:25.047  WARN 39636 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:49:25.188  INFO 39636 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:49:25.219  INFO 39636 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:49:25.250  INFO 39636 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:49:25.844  INFO 39636 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:49:25.891  INFO 39636 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:49:25.891  INFO 39636 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:49:26.219  INFO 39636 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:49:26.234  INFO 39636 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:49:26.797  INFO 39636 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:49:26.812  INFO 39636 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.432 seconds (JVM running for 7.426)
+2020-07-20 21:49:29.944  INFO 39636 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:49:29.945  INFO 39636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:49:29.958  INFO 39636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-07-20 21:49:30.003  INFO 39636 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/-1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[-1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:49:30.021  WARN 39636 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:49:30.188  INFO 39636 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:49:30.571 ERROR 39636 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] Exception processing template "types": An error happened during template parsing (template: "class path resource [templates/types.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/types.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "#array.length(types)" (template: "types" - line 52, col 29)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "#array.length(types)" (template: "types" - line 52, col 29)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:290)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method length(java.util.ArrayList) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:263)
+	... 69 common frames omitted
+
+2020-07-20 21:49:30.575 ERROR 39636 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/types.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method length(java.util.ArrayList) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:263)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-07-20 21:50:17.249  INFO 39948 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 39948 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:50:17.249 DEBUG 39948 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:50:17.249  INFO 39948 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:50:17.358  INFO 39948 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:50:17.358  INFO 39948 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:50:18.249  INFO 39948 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:50:18.358  INFO 39948 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100ms. Found 5 JPA repository interfaces.
+2020-07-20 21:50:19.326  INFO 39948 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:50:19.342  INFO 39948 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:50:19.342  INFO 39948 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:50:19.545  INFO 39948 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:50:19.545  INFO 39948 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2187 ms
+2020-07-20 21:50:19.733  INFO 39948 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:50:19.795  INFO 39948 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:50:19.858  INFO 39948 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:50:19.951  WARN 39948 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:50:20.014  INFO 39948 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:50:20.139  INFO 39948 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:50:20.139  WARN 39948 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:50:20.279  INFO 39948 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:50:20.295  INFO 39948 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:50:20.342  INFO 39948 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:50:21.014  INFO 39948 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:50:21.076  INFO 39948 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:50:21.076  INFO 39948 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:50:21.373  INFO 39948 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:50:21.373  INFO 39948 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:50:22.138  INFO 39948 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:50:22.154  INFO 39948 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.604 seconds (JVM running for 7.777)
+2020-07-20 21:50:29.200  INFO 39948 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:50:29.201  INFO 39948 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:50:29.213  INFO 39948 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-07-20 21:50:29.262  INFO 39948 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/-1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[-1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:50:29.280  WARN 39948 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:50:29.406  INFO 39948 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:50:33.131 ERROR 39948 --- [http-nio-8080-exec-1] c.z.b.h.ControllerExceptionHandler       : Request URL:http://127.0.0.1:8080/types/type.id,Excepion:{}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "type.id"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "type.id"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 47 common frames omitted
+
+2020-07-20 21:50:33.133  WARN 39948 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "type.id"]
+2020-07-20 21:51:39.791  INFO 72864 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 72864 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:51:39.791 DEBUG 72864 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:51:39.791  INFO 72864 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:51:39.854  INFO 72864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:51:39.854  INFO 72864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:51:40.728  INFO 72864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:51:40.822  INFO 72864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95ms. Found 5 JPA repository interfaces.
+2020-07-20 21:51:41.681  INFO 72864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:51:41.697  INFO 72864 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:51:41.697  INFO 72864 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:51:41.931  INFO 72864 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:51:41.931  INFO 72864 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2077 ms
+2020-07-20 21:51:42.119  INFO 72864 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:51:42.181  INFO 72864 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:51:42.244  INFO 72864 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:51:42.353  WARN 72864 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:51:42.431  INFO 72864 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:51:42.540  INFO 72864 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:51:42.556  WARN 72864 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:51:42.697  INFO 72864 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:51:42.728  INFO 72864 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:51:42.775  INFO 72864 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:51:43.384  INFO 72864 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:51:43.431  INFO 72864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:51:43.431  INFO 72864 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:51:43.728  INFO 72864 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:51:43.743  INFO 72864 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:51:44.493  INFO 72864 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:51:44.493  INFO 72864 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.373 seconds (JVM running for 7.287)
+2020-07-20 21:51:48.075  INFO 72864 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:51:48.076  INFO 72864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:51:48.092  INFO 72864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2020-07-20 21:51:48.138 ERROR 72864 --- [http-nio-8080-exec-1] c.z.b.h.ControllerExceptionHandler       : Request URL:http://127.0.0.1:8080/types/type.id,Excepion:{}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "type.id"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "type.id"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 47 common frames omitted
+
+2020-07-20 21:51:48.142  WARN 72864 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "type.id"]
+2020-07-20 21:51:51.298  INFO 72864 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/-1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[-1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:51:51.317  WARN 72864 --- [http-nio-8080-exec-8] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:51:51.435  INFO 72864 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:51:55.055  INFO 72864 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:51:55.069  INFO 72864 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:51:56.947  INFO 72864 --- [http-nio-8080-exec-5] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/3, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[3, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:51:56.955  INFO 72864 --- [http-nio-8080-exec-5] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:52:05.586  INFO 72864 --- [http-nio-8080-exec-9] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:52:05.600  INFO 72864 --- [http-nio-8080-exec-9] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:52:07.033  INFO 72864 --- [http-nio-8080-exec-4] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/3, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[3, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:52:07.053  INFO 72864 --- [http-nio-8080-exec-4] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:52:39.558  INFO 73000 --- [restartedMain] com.zeecode.blog.BlogApplication         : Starting BlogApplication on DESKTOP-L9T0IBU with PID 73000 (D:\WORKSPACE\IDEA\blog\target\classes started by Administrator in D:\WORKSPACE\IDEA\blog)
+2020-07-20 21:52:39.558 DEBUG 73000 --- [restartedMain] com.zeecode.blog.BlogApplication         : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-20 21:52:39.558  INFO 73000 --- [restartedMain] com.zeecode.blog.BlogApplication         : The following profiles are active: dev
+2020-07-20 21:52:39.636  INFO 73000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-20 21:52:39.636  INFO 73000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-20 21:52:40.662  INFO 73000 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-20 21:52:40.771  INFO 73000 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99ms. Found 5 JPA repository interfaces.
+2020-07-20 21:52:41.599  INFO 73000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-20 21:52:41.615  INFO 73000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-20 21:52:41.615  INFO 73000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-20 21:52:41.786  INFO 73000 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-20 21:52:41.786  INFO 73000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2150 ms
+2020-07-20 21:52:41.943  INFO 73000 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-20 21:52:42.005  INFO 73000 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 21:52:42.052  INFO 73000 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-20 21:52:42.161  WARN 73000 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-20 21:52:42.224  INFO 73000 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 21:52:42.318  INFO 73000 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-20 21:52:42.318  WARN 73000 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-20 21:52:42.458  INFO 73000 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-20 21:52:42.489  INFO 73000 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-07-20 21:52:42.536  INFO 73000 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-20 21:52:43.130  INFO 73000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-20 21:52:43.177  INFO 73000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-20 21:52:43.177  INFO 73000 --- [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-07-20 21:52:43.505  INFO 73000 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 21:52:43.520  INFO 73000 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 21:52:44.286  INFO 73000 --- [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-07-20 21:52:44.286  INFO 73000 --- [restartedMain] com.zeecode.blog.BlogApplication         : Started BlogApplication in 5.424 seconds (JVM running for 7.438)
+2020-07-20 21:52:46.554  INFO 73000 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-20 21:52:46.555  INFO 73000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-20 21:52:46.569  INFO 73000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-07-20 21:52:46.618  INFO 73000 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/3, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[3, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:52:46.635  WARN 73000 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-07-20 21:52:46.737  INFO 73000 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:52:49.178  INFO 73000 --- [http-nio-8080-exec-5] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/2, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[2, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:52:49.195  INFO 73000 --- [http-nio-8080-exec-5] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:52:50.578  INFO 73000 --- [http-nio-8080-exec-7] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:52:50.592  INFO 73000 --- [http-nio-8080-exec-7] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:52:52.168  INFO 73000 --- [http-nio-8080-exec-4] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/3, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[3, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:52:52.176  INFO 73000 --- [http-nio-8080-exec-4] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:52:54.608  INFO 73000 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/2, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[2, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:52:54.631  INFO 73000 --- [http-nio-8080-exec-10] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:53:01.117  INFO 73000 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:53:01.131  INFO 73000 --- [http-nio-8080-exec-1] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:53:03.459  INFO 73000 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/3, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[3, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:53:03.465  INFO 73000 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:53:04.815  INFO 73000 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:53:04.827  INFO 73000 --- [http-nio-8080-exec-6] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:53:05.830  INFO 73000 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/2, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[2, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:53:05.840  INFO 73000 --- [http-nio-8080-exec-8] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:53:11.604  INFO 73000 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/1, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[1, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:53:11.615  INFO 73000 --- [http-nio-8080-exec-2] com.zeecode.blog.aspect.LogAspect        : Result:types
+2020-07-20 21:53:24.964  INFO 73000 --- [http-nio-8080-exec-7] com.zeecode.blog.aspect.LogAspect        : Request:LogAspect.RequestLog(url=http://127.0.0.1:8080/types/2, ip=127.0.0.1, classMethod=com.zeecode.blog.web.TypeShowController.types, args=[2, Page request [number: 0, size 5, sort: updateTime: DESC], {}])
+2020-07-20 21:53:24.975  INFO 73000 --- [http-nio-8080-exec-7] com.zeecode.blog.aspect.LogAspect        : Result:types
