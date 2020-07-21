@@ -6,6 +6,7 @@ import com.zeecode.blog.po.Type;
 import com.zeecode.blog.service.BlogService;
 import com.zeecode.blog.service.TagService;
 import com.zeecode.blog.service.TypeService;
+import com.zeecode.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -32,6 +33,9 @@ public class IndexController {
 
     @Autowired
     private TagService tagService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/")
     public String index(@PageableDefault(size = 5,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
@@ -70,12 +74,5 @@ public class IndexController {
     @GetMapping("/about")
     public String about(){
         return "about";
-    }
-
-    //footer
-    @GetMapping("/footer/newblog")
-    public String newblogs(Model model){
-        model.addAttribute("newblogs",blogService.listRecommendBlogTop(3));
-        return "_fragments :: newblogList";
     }
 }
