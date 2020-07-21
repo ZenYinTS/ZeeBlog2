@@ -12,13 +12,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -102,4 +104,28 @@ public class BlogController {
         return "redirect:/admin/blogs";
     }
 
+    @PostMapping("/uploadfile")
+    public @ResponseBody
+    Map<String,Object> demo(@RequestParam(value = "editormd-image-file", required = false) MultipartFile file, HttpServletRequest request) {
+        Map<String,Object> resultMap = new HashMap<String,Object>();
+        //保存
+        try {
+            //选定要存放图片位置的路径
+            File imageFolder= new File(request.getServletContext().getRealPath("/img/upload"));
+            File targetFile = new File(imageFolder,file.getOriginalFilename());
+            if(!targetFile.getParentFile().exists())
+                targetFile.getParentFile().mkdirs();
+            file.transferTo(targetFile);
+            resultMap.put("success", 1);
+            resultMap.put("message", "上传成功！");
+            //这里的url是点了上传图片后，回显在editormd上的路径
+            resultMap.put("url","http://127.0.0.1:8080/img/upload/"+file.getOriginalFilename());
+        } catch (Exception e) {
+            resultMap.put("success", 0);
+            resultMap.put("message", "上传失败！");
+            e.printStackTrace();
+        }
+        System.out.println(resultMap.get("success"));
+        return resultMap;
+    }
 }
