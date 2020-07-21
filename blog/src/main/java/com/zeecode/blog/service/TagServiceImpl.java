@@ -2,6 +2,7 @@ package com.zeecode.blog.service;
 
 import com.zeecode.blog.NotFoundException;
 import com.zeecode.blog.dao.TagRepository;
+import com.zeecode.blog.po.Blog;
 import com.zeecode.blog.po.Tag;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -59,9 +61,26 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public List<Tag> listTagTop(Integer size) {
-        Sort sort = Sort.by(Sort.Direction.DESC,"blogs.size");
-        Pageable pageable = PageRequest.of(0,size,sort);
-        return tagRepository.findTop(pageable);
+        List<Tag> tags = this.listTag();
+        List<Tag> tagTop = new ArrayList<>();
+        //过滤，去掉未发布的博客
+        for (Tag tag:tags){
+            Tag temTag =tag;
+            List<Blog> temBlog = new ArrayList<>();
+            for (Blog b : tag.getBlogs()){
+                if (b.isPublished())
+                    temBlog.add(b);
+            }
+            temTag.setBlogs(temBlog);
+            tagTop.add(temTag);
+        }
+        Collections.sort(tagTop,(t1, t2)->{
+            return t2.getBlogs().size()-t1.getBlogs().size();
+        });
+        if (size>=tagTop.size())
+            return tagTop;
+        else
+            return tagTop.subList(0,size);
     }
 
     //将1，2,3,字符串转为Long类型的list

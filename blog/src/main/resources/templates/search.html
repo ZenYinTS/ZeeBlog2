@@ -75,7 +75,7 @@
                                             <img th:src="@{${blog.user.avatar}}" src="https://picsum.photos/id/1/100/100" alt="" class="ui avatar image" />
                                             <!--                                                    昵称-->
                                             <div class="content">
-                                                <a th:text="${blog.user.nickname}" href="#" class="header">臻尹</a>
+                                                <a th:text="${blog.user.nickname}" th:href="@{/about}" href="#" class="header">臻尹</a>
                                             </div>
                                         </div>
                                         <!--                                                日期-->
@@ -95,7 +95,7 @@
                                 </div>
                                 <!--                                        分类-->
                                 <div class="five wide column right aligned">
-                                    <a th:text="${blog.type.name}" href="#" class="ui label blue basic m-padded-tiny m-text-thin">认知升级</a>
+                                    <a th:text="${blog.type.name}" th:href="@{/types/{id}(id=${blog.type.id})}" href="#" class="ui label blue basic m-padded-tiny m-text-thin">认知升级</a>
                                 </div>
                             </div>
                         </div>
@@ -112,10 +112,10 @@
             <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
                 <div class="ui middle aligned two column grid">
                     <div class="column">
-                        <a th:href="@{/(page=${page.number}-1)}" class="ui mini blue basic circular button">上一页</a>
+                        <a th:href="@{/search(page=${page.number}-1,q=${query})}" th:unless="${page.first}" class="ui mini blue basic circular button">上一页</a>
                     </div>
                     <div class="right aligned column">
-                        <a th:href="@{/(page=${page.number}+1)}" href="#" class="ui mini blue basic circular button">下一页</a>
+                        <a th:href="@{/search(page=${page.number}+1,q=${query})}" th:unless="${page.last}" class="ui mini blue basic circular button">下一页</a>
                     </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
     <script>
         $('.menu.toggle').click(function() {
             $('.m-item').toggleClass('m-mobile-hide');
-        })
+        });
     </script>
 </body>
 

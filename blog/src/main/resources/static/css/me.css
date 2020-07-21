@@ -1,5 +1,5 @@
 body {
-    background: url("../images/bg.png") no-repeat fixed center center;
+    background: url("../images/bg.png") repeat;
 }
 
 .m-padded-mini {
@@ -227,11 +227,5 @@ m-margin-bottom-small {
     .m-mobile-lr-clear {
         padding-right: 0 !important;
         padding-left: 0 !important;
-    }
-    .m-mobile-wide {
-        width: 100%;
-    }
-    body {
-        background: url("../images/bg_mobile.png") no-repeat center center fixed;
     }
 }

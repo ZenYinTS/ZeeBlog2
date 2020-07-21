@@ -14,13 +14,13 @@ public interface BlogService {
 
     Blog getAndConvert(Long id);
 
-    Page<Blog> listBlog(Pageable pageable, BlogQuery blogQuery);
+    Page<Blog> listBlog(Pageable pageable, BlogQuery blogQuery,boolean flag);
 
-    Page<Blog> listBlog(Pageable pageable);
+    Page<Blog> listPublishedBlogPageable(Pageable pageable);
 
-    Page<Blog> listBlog(Pageable pageable, Long tagId);
+    Page<Blog> listPublishedBlog(Pageable pageable, Long tagId);
 
-    Page<Blog> listBlog(Pageable pageable,String query);
+    Page<Blog> listPublishedBlog(Pageable pageable,String query);
 
     Blog saveBlog(Blog blog);
 
@@ -29,6 +29,8 @@ public interface BlogService {
     void deleteBlog(Long id);
 
     List<Blog> listRecommendBlogTop(Integer size);
+
+    List<Blog> listPublishedBlog();
 
     Map<String,List<Blog>> archiveBlog();
 

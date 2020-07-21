@@ -50,7 +50,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Transactional
     @Override
-    public Page<Blog> listBlog(Pageable pageable, BlogQuery blogQuery) {
+    public Page<Blog> listBlog(Pageable pageable, BlogQuery blogQuery,boolean flag) {
         //动态查询
         //CriteriaQuery存放查询条件的容器
         //CriteriaBuilder存放查询条件的表达式，如相等，模糊查询like
@@ -71,6 +71,10 @@ public class BlogServiceImpl implements BlogService {
                 if (blogQuery.isRecommend()) {
                     predicates.add(cb.equal(root.<Boolean>get("recommend"), blogQuery.isRecommend()));
                 }
+                //若在前端，只展示发布博客，在后端全部展示
+                if (!flag){
+                    predicates.add(cb.equal(root.<Boolean>get("published"), true));
+                }
                 //构造查询条件的where子句，需要传入数组
                 //集合转为数组toArray，转为对象数组需要传入对象数组参数，并指定大小
                 cq.where(predicates.toArray(new Predicate[predicates.size()]));
@@ -82,26 +86,31 @@ public class BlogServiceImpl implements BlogService {
 
     @Transactional
     @Override
-    public Page<Blog> listBlog(Pageable pageable, Long tagId) {
+    public Page<Blog> listPublishedBlog(Pageable pageable, Long tagId) {
         return blogRepository.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+                //组合条件放在list中
+                List<Predicate> predicates = new ArrayList<>();
                 //关联查询，当前的blog关联另外一个tags属性
                 Join join = root.join("tags");
-                return cb.equal(join.get("id"),tagId);
+                predicates.add(cb.equal(join.get("id"),tagId));
+                predicates.add(cb.equal(root.get("published"),true));
+                cq.where(predicates.toArray(new Predicate[predicates.size()]));
+                return null;
             }
         }, pageable);
     }
 
     @Transactional
     @Override
-    public Page<Blog> listBlog(Pageable pageable) {
-        return blogRepository.findAll(pageable);
+    public Page<Blog> listPublishedBlogPageable(Pageable pageable) {
+        return blogRepository.listPublishedBlogPageable(pageable);
     }
 
     @Transactional
     @Override
-    public Page<Blog> listBlog(Pageable pageable, String query) {
+    public Page<Blog> listPublishedBlog(Pageable pageable, String query) {
         return blogRepository.findByQuery(query,pageable);
     }
 
@@ -157,5 +166,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Long countBlog() {
         return blogRepository.count();
+    }
+
+    @Override
+    public List<Blog> listPublishedBlog() {
+        return blogRepository.listPublishedBlog();
     }
 }

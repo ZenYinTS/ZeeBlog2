@@ -2,6 +2,7 @@ package com.zeecode.blog.service;
 
 import com.zeecode.blog.NotFoundException;
 import com.zeecode.blog.dao.TypeRepository;
+import com.zeecode.blog.po.Blog;
 import com.zeecode.blog.po.Type;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -51,10 +54,28 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public List<Type> listTypeTop(Integer size) {
-        Sort sort = Sort.by(Sort.Direction.DESC,"blogs.size");
-        Pageable pageable = PageRequest.of(0,size,sort);
-        return typeRepository.findTop(pageable);
+        List<Type> types = this.listType();
+        List<Type> typeTop = new ArrayList<>();
+        //过滤，去掉未发布的博客
+        for (Type type:types){
+            Type temType =type;
+            List<Blog> temBlog = new ArrayList<>();
+            for (Blog b : type.getBlogs()){
+                if (b.isPublished())
+                    temBlog.add(b);
+            }
+            temType.setBlogs(temBlog);
+            typeTop.add(temType);
+        }
+        Collections.sort(typeTop,(t1,t2)->{
+            return t2.getBlogs().size()-t1.getBlogs().size();
+        });
+        if (size>=typeTop.size())
+            return typeTop;
+        else
+            return typeTop.subList(0,size);
     }
+
 
     @Transactional
     @Override

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,7 +39,7 @@ public class TypeShowController {
 
         BlogQuery bq = new BlogQuery();
         bq.setTypeId(id);
-        model.addAttribute("page",blogService.listBlog(pageable,bq));
+        model.addAttribute("page",blogService.listBlog(pageable,bq,false));
         model.addAttribute("activeTypeId",id);
         return "types";
     }

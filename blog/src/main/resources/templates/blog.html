@@ -51,7 +51,7 @@
                         <!--头像-->
                         <img th:src="@{${blog.user.avatar}}" src="https://picsum.photos/id/1/100/100" alt="" class="ui avatar image" />
                         <div class="content">
-                            <a th:text="${blog.user.nickname}" href="#" class="header">臻尹</a>
+                            <a th:text="${blog.user.nickname}" th:href="@{/about}" href="#" class="header">臻尹</a>
                         </div>
                     </div>
                     <div class="item">
@@ -185,7 +185,7 @@
                     <div th:each="tag : ${blog.tags}" th:text="${tag.name}" class="ui blue basic left pointing label m-margin m-padded">标签</div>
                 </div>
                 <!-- 赞赏 -->
-                <div class="ui center aligned basic segment">
+                <div class="ui center aligned basic segment" th:if="${blog.appreciation}">
                     <button id="btnPay" class="ui basic large red circular m-padded button">赞赏</button>
                     <div class="ui payQR flowing popup transition hidden">
                         <div class="ui images" style="font-size: inherit !important;">
@@ -202,14 +202,13 @@
                 </div>
             </div>
             <!-- 博客信息 -->
-            <div class="ui attached violet positive message">
+            <div class="ui attached violet positive message" th:if="${blog.shareStatement}">
                 <div class="ui grid middle aligned">
                     <div class="eleven wide column">
                         <ul class="list">
                             <li>作者：<span th:text="${blog.user.nickname}">臻尹</span><a th:href="@{/about}" href="#" target="_blank">（联系作者）</a></li>
                             <li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2017-10-02 09:08</span></li>
                             <li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
-                            <li>公众号转载：请在文末添加作者公众号二维码</li>
                         </ul>
                     </div>
                     <div class="five wide column">
@@ -218,7 +217,7 @@
                 </div>
             </div>
             <!-- 评论区 -->
-            <div class="ui bottom attached segment">
+            <div class="ui bottom attached segment" th:if="${blog.commentable}">
                 <!-- 留言区域列表 -->
                 <div id="comment-container" class="ui violet segment m-margin">
                     <div th:fragment="commentList">

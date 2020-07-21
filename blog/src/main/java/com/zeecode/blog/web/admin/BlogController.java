@@ -38,7 +38,7 @@ public class BlogController {
                         Model model) {
         //在刚进入博客页面时，加载好分类列表
         model.addAttribute("types", typeService.listType());
-        model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
+        model.addAttribute("page", blogService.listBlog(pageable, blogQuery,true));
         return "admin/blogs";
     }
 
@@ -47,7 +47,7 @@ public class BlogController {
     public String search(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          BlogQuery blogQuery,
                          Model model) {
-        model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
+        model.addAttribute("page", blogService.listBlog(pageable, blogQuery,true));
         return "admin/blogs :: blogList";
     }
 
