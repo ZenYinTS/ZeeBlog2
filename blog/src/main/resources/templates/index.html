@@ -17,7 +17,7 @@
         <div class="ui container">
             <div class="ui inverted secondary menu stackable">
                 <!-- 指定为菜单项item,m-item无意义，为了后续获取 -->
-                <h2 class="ui blue header item">ZeeCodeBlog</h2>
+                <h2 class="ui m-theme-color header item">ZeeCodeBlog</h2>
                 <a href="#" class="m-item item m-mobile-hide">首页<i class="small home icon m-padded-lr-small"></i></a>
                 <a href="#" class="m-item item m-mobile-hide">分类<i class="small idea icon m-padded-lr-small"></i></a>
                 <a href="#" class="m-item item m-mobile-hide">标签<i class="small tags icon m-padded-lr-small"></i></a>
@@ -49,7 +49,7 @@
                     <div class="ui top attached segment">
                         <div class="ui middle aligned two column grid">
                             <div class="column">
-                                <h3 class="ui blue header">博客</h3>
+                                <h3 class="ui m-theme-color header">博客</h3>
                             </div>
                             <div class="right aligned column">
                                 共
@@ -177,7 +177,7 @@
                                             </div>
                                         </div>
                                         <div class="five wide column right aligned">
-                                            <a href="#" class="ui label blue basic m-padded-tiny m-text-thin">认知升级</a>
+                                            <a href="#" class="ui label violet basic m-padded-tiny m-text-thin">认知升级</a>
                                         </div>
                                     </div>
                                 </div>
@@ -215,11 +215,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ui segment blue">
+                        <div class="ui segment">
                             <div class="ui fluid vertical menu">
                                 <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item" th:each="type : ${types}">
                                     <span th:text="${type.name}">学习日志</span>
-                                    <div th:text="${#arrays.length(type.blogs)}" class="ui blue basic label left pointing">13</div>
+                                    <div th:text="${#arrays.length(type.blogs)}" class="ui basic label left pointing blue">13</div>
                                 </a>
                                 <!--/*-->
                                 <a href="#" class="item">思考与感悟
@@ -251,8 +251,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ui segment blue">
-                            <a  th:each="tag : ${tags}" th:href="@{/tags/{id}(id=${tag.id})}" href="#" target="_blank" class="ui blue basic left pointing label m-margin">
+                        <div class="ui segment">
+                            <a  th:each="tag : ${tags}" th:href="@{/tags/{id}(id=${tag.id})}" href="#" target="_blank" class="ui left pointing label m-margin m-tag-color m-text-thin">
                                 <span th:text="${tag.name}">方法论</span>
                                 <div class="detail" th:text="${#arrays.length(tag.blogs)}">13</div>
                             </a>
@@ -279,7 +279,7 @@
                         <!--*/-->
                     </div>
                     <!--二维码-->
-                    <h4 class="ui horizontal divider header m-margin-top-large" style="color: white;">扫码关注我</h4>
+                    <h4 class="ui horizontal divider header m-margin-top-large" style="color: #3D3D3D">扫码关注我</h4>
                     <div class="ui centered card" style="width: 10em;">
                         <img src="../static/images/wechat.jpg" alt="" class="ui rounded image" th:src="@{/images/wechat.jpg}">
                     </div>

@@ -34,18 +34,18 @@ public class IndexController {
     private TagService tagService;
 
     @GetMapping("/")
-    public String index(@PageableDefault(size = 8,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String index(@PageableDefault(size = 5,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                         Model model){
         //前端列表展示所需数据
         model.addAttribute("page",blogService.listPublishedBlogPageable(pageable));
         model.addAttribute("types",typeService.listTypeTop(6));
         model.addAttribute("tags",tagService.listTagTop(10));
-        model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(8));
+        model.addAttribute("recommendBlogs",blogService.listRecommendBlogTop(5));
         return "index";
     }
 
     @PostMapping("/search")
-    public String search(@PageableDefault(size = 8,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size = 5,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query, Model model){
         model.addAttribute("page",blogService.listPublishedBlog(pageable,("%"+query+"%")));
         model.addAttribute("query",query);
@@ -53,7 +53,7 @@ public class IndexController {
     }
 
     @GetMapping("/search")
-    public String search1(@PageableDefault(size = 8,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String search1(@PageableDefault(size = 5,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                           HttpServletRequest request, Model model){
         String q = request.getParameter("q");
         model.addAttribute("page",blogService.listPublishedBlog(pageable,("%"+q+"%")));

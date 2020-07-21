@@ -1,5 +1,5 @@
 body {
-    background: url("../images/bg.png") repeat;
+    background: url("../images/bg.png");
 }
 
 .m-padded-mini {
@@ -109,7 +109,7 @@ body {
     margin: 1em !important;
 }
 
-m-margin-bottom-small {
+.m-margin-bottom-small {
     margin-bottom: 0.5em !important;
 }
 
@@ -135,7 +135,7 @@ m-margin-bottom-small {
     line-height: 1.8;
 }
 
-.m-word-spacing{
+.m-word-spacing {
     word-spacing: 5px;
 }
 
@@ -186,21 +186,48 @@ m-margin-bottom-small {
 .m-container {
     max-width: 60em !important;
     margin: auto !important;
+    min-height: 100% !important;
+    margin-bottom: -50px !important;
 }
 
 
 /*------------ color --------------*/
 
 .m-black {
-    color: #333 !important;
+    color: #3D3D3D !important;
 }
 
+.m-background-color {
+    background: #69647b !important;
+    color: whitesmoke !important;
+}
 
+.m-white{
+    color: whitesmoke !important;
+}
+
+.m-theme-color {
+    color: steelblue !important;
+}
+
+.m-tag-color {
+    color: whitesmoke !important;
+    background: steelblue !important;
+}
+
+.m-share-color {
+    color: #5f524a !important;
+    background: #d5d7c5 !important;
+}
+
+.m-tech-tag-color{
+    color: #b13e37 !important;
+}
 /*------------- shadow ----------*/
 
 .m-shadow-small {
-    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 2) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 2) !important;
+    -webkit-box-shadow: 0 4px 8px rgb(156, 168, 184) !important;
+    box-shadow: 0 4px 8px rgb(156, 168, 184) !important;
 }
 
 .m-mobile-show {
@@ -213,17 +240,20 @@ m-margin-bottom-small {
 
 /*当屏幕宽度小于768px时，隐藏组件，显示菜单组件*/
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
     .m-mobile-hide {
         display: none !important;
     }
+
     .m-mobile-show {
         display: block !important;
     }
+
     .m-padded-lr-responsive {
         padding-right: 0 !important;
         padding-left: 0 !important;
     }
+
     .m-mobile-lr-clear {
         padding-right: 0 !important;
         padding-left: 0 !important;

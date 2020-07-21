@@ -44,7 +44,7 @@ public class BlogController {
 
     //实现部分渲染，只需要进行表格的渲染，无需更改搜索条件，所以不用渲染更改条件
     @PostMapping("/blogs/search")
-    public String search(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          BlogQuery blogQuery,
                          Model model) {
         model.addAttribute("page", blogService.listBlog(pageable, blogQuery,true));

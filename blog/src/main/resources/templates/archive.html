@@ -39,13 +39,13 @@
     </nav>
 
     <!-- 中间内容 -->
-    <div class="m-container m-padded-tb-large m-opacity animate__animated animate__fadeIn">
+    <div class="m-container m-padded-tb-massive m-opacity animate__animated animate__fadeIn">
         <div class="ui container">
             <!-- header -->
             <div class="ui top attached segment">
                 <div class="ui middle aligned two column grid">
                     <div class="column">
-                        <h3 class="ui blue header padded">归档</h3>
+                        <h3 class="ui m-theme-color header padded">归档</h3>
                     </div>
                     <div class="right aligned column">
                         共
@@ -54,11 +54,11 @@
                 </div>
             </div>
             <th:block th:each="item : ${archiveMap}">
-                <h1 th:text="${item.key}" class="ui header center aligned inverted" style="font-family: 'Times New Roman', Times, serif;">2017</h1>
+                <h1 th:text="${item.key}" class="ui header center aligned" style="color:#3D3D3D;font-family: 'Times New Roman', Times, serif;">2017</h1>
                 <div class="ui vertical menu fluid">
                     <a th:href="@{/blog/{id}(id=${blog.id})}" href="#" target="_blank" class="item" th:each="blog : ${item.value}">
                     <span>
-                        <i class="blue file alternate icon"></i><span th:text="${blog.title}">博客1</span>
+                        <i class="m-theme-color file alternate icon"></i><span th:text="${blog.title}">博客1</span>
                         <div th:text="${#dates.format(blog.updateTime,'MM-dd')}" class="ui blue basic left pointing label m-padded-mini m-text-thin">9月03</div>
                     </span>
                         <div th:text="${blog.flag}" class="ui orange basic label m-padded-mini m-text-thin">原创</div>
