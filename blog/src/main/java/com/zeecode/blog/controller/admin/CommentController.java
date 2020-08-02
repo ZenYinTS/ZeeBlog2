@@ -1,7 +1,7 @@
-package com.zeecode.blog.web.admin;
+package com.zeecode.blog.controller.admin;
 
-import com.zeecode.blog.po.Comment;
-import com.zeecode.blog.po.User;
+import com.zeecode.blog.pojo.Comment;
+import com.zeecode.blog.pojo.User;
 import com.zeecode.blog.service.BlogService;
 import com.zeecode.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;

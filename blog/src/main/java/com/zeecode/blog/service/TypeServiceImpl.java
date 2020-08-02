@@ -2,14 +2,12 @@ package com.zeecode.blog.service;
 
 import com.zeecode.blog.NotFoundException;
 import com.zeecode.blog.dao.TypeRepository;
-import com.zeecode.blog.po.Blog;
-import com.zeecode.blog.po.Type;
+import com.zeecode.blog.pojo.Blog;
+import com.zeecode.blog.pojo.Type;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

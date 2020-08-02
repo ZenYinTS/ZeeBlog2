@@ -1,6 +1,6 @@
 package com.zeecode.blog.service;
 
-import com.zeecode.blog.po.Comment;
+import com.zeecode.blog.pojo.Comment;
 
 import java.util.List;
 

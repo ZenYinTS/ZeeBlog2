@@ -1,6 +1,6 @@
-package com.zeecode.blog.web.admin;
+package com.zeecode.blog.controller.admin;
 
-import com.zeecode.blog.po.User;
+import com.zeecode.blog.pojo.User;
 import com.zeecode.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

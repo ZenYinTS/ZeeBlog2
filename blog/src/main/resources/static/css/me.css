@@ -1,5 +1,6 @@
 body {
-    background: url("../images/bg.png");
+    background: url("../images/bg.png") no-repeat center center fixed;
+    cursor: url("../images/cursor.ico"),auto !important;
 }
 
 .m-padded-mini {
@@ -113,7 +114,10 @@ body {
     margin-bottom: 0.5em !important;
 }
 
-
+.m-margin-lr-small {
+    margin-left: 0.5em !important;
+    margin-right: 0.5em !important;
+}
 /*---------- text ------------*/
 
 .m-text {
@@ -150,10 +154,6 @@ body {
     opacity: 0.8 !important;
 }
 
-.m-opacity-tiny {
-    opacity: 0.5 !important;
-}
-
 
 /*------------ position ------------*/
 
@@ -187,7 +187,6 @@ body {
     max-width: 60em !important;
     margin: auto !important;
     min-height: 100% !important;
-    margin-bottom: -50px !important;
 }
 
 
@@ -198,8 +197,8 @@ body {
 }
 
 .m-background-color {
-    background: #69647b !important;
-    color: whitesmoke !important;
+    background: #ffffff !important;
+    color: #dea3a8 !important;
 }
 
 .m-white{
@@ -207,27 +206,52 @@ body {
 }
 
 .m-theme-color {
-    color: steelblue !important;
+    color: #dea3a8 !important;
 }
 
 .m-tag-color {
-    color: whitesmoke !important;
-    background: steelblue !important;
+    color: white !important;
+    background: #dea3a8 !important;
+}
+
+.m-type-color{
+    color: #cb3d54 !important;
+    background: transparent !important;
 }
 
 .m-share-color {
-    color: #5f524a !important;
-    background: #d5d7c5 !important;
+    color: #561e2a !important;
+    background: #fff1e5 !important;
 }
 
 .m-tech-tag-color{
     color: #b13e37 !important;
 }
+/*------------ hover -----------*/
+.m-firstPic-hover:hover{
+    transition:transform 1s ease 0s;
+    transform: scale(1.1);
+}
+
+.m-firstPic-hover{
+    transition:transform 1s ease 0s;
+    transform: scale(1);
+}
+
+.m-tag-hover:hover{
+    transition:transform 0.5s ease 0s;
+    transform: scale(1.1);
+    color: white !important;
+}
+
+a:hover,a:active{
+    color: #dea3a8 !important;
+}
 /*------------- shadow ----------*/
 
 .m-shadow-small {
-    -webkit-box-shadow: 0 4px 8px rgb(156, 168, 184) !important;
-    box-shadow: 0 4px 8px rgb(156, 168, 184) !important;
+    -webkit-box-shadow: 0 4px 8px rgb(255, 217, 220) !important;
+    box-shadow: 0 4px 8px rgb(255, 217, 220) !important;
 }
 
 .m-mobile-show {
@@ -258,4 +282,9 @@ body {
         padding-right: 0 !important;
         padding-left: 0 !important;
     }
+    body {
+        background: url("../images/bg_mobile.png") no-repeat center center fixed;
+    }
 }
+
+

@@ -1,6 +1,6 @@
 package com.zeecode.blog.dao;
 
-import com.zeecode.blog.po.Blog;
+import com.zeecode.blog.pojo.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

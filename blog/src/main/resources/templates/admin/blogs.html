@@ -16,7 +16,7 @@
         <div class="ui container">
             <div class="ui inverted secondary menu stackable">
                 <!-- 指定为菜单项item,m-item无意义，为了后续获取 -->
-                <h2 class="ui blue header item">管理后台</h2>
+                <h2 class="ui m-theme-color header item">管理后台</h2>
                 <a href="#" class="m-item item m-mobile-hide">博客<i class="small file alternate outline icon m-padded-lr-small"></i></a>
                 <a href="#" class="m-item item m-mobile-hide">分类<i class="small idea icon m-padded-lr-small"></i></a>
                 <a href="#" class="m-item item m-mobile-hide">标签<i class="small tags icon m-padded-lr-small"></i></a>
@@ -44,7 +44,7 @@
         <div class="ui container">
             <div class="right menu">
                 <a href="#" th:href="@{/admin/blogs/input}" class="item">发布</a>
-                <a href="#" th:href="@{/admin/blogs/input}" class="active blue item">列表</a>
+                <a href="#" th:href="@{/admin/blogs/input}" class="active m-theme-color item">列表</a>
             </div>
         </div>
     </div>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="field">
-                        <button type="button" id="btnSearch" class="ui mini blue basic button"><i class="search icon"></i> 搜索</button>
+                        <button type="button" id="btnSearch" class="ui mini pink basic button"><i class="search icon"></i> 搜索</button>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                         <td th:text="${blog.published}?发布:草稿">草稿</td>
                         <td th:text="${blog.updateTime}">2017-10-02 09:45</td>
                         <td>
-                            <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="mini basic ui blue button">编辑</a>
+                            <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="mini basic ui teal button">编辑</a>
                             <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="mini basic ui red button">删除</a>
                         </td>
                     </tr>
@@ -119,10 +119,10 @@
                         <div class="ui pagination menu mini" th:if="${page.totalPages}>1">
                             <!--                            需要获取搜索条件，/admin/blogs(page=${page.number}-1)这种方式只可以传递页码，无法传递参数-->
                             <!--                            若在地址后拼接字符串传递参数，需要拼接三个查询条件的参数，可读性差，且只适用于get方式，这里采用post方式-->
-                            <button onclick="page(this)" th:attr="data-page=${page.number}-1" class="mini item button" th:unless="${page.first}">上一页</button>
-                            <button onclick="page(this)" th:attr="data-page=${page.number}+1" class="mini item button" th:unless="${page.last}">下一页</button>
+                            <button onclick="page(this)" th:attr="data-page=${page.number}-1" class="ui mini item button" th:unless="${page.first}">上一页</button>
+                            <button onclick="page(this)" th:attr="data-page=${page.number}+1" class="ui mini item button" th:unless="${page.last}">下一页</button>
                         </div>
-                        <a th:href="@{/admin/blogs/input}" class="ui mini basic blue button right floated">新增</a>
+                        <a th:href="@{/admin/blogs/input}" class="ui mini basic teal button right floated">新增</a>
                     </th>
                     </tfoot>
                 </table>

@@ -1,4 +1,4 @@
-package com.zeecode.blog.po;
+package com.zeecode.blog.pojo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

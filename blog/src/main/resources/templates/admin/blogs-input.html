@@ -46,7 +46,7 @@
 <div class="ui menu m-opacity-mini attached pointing">
     <div class="ui container">
         <div class="right menu">
-            <a href="#" th:href="@{/admin/blogs/input}" class="active blue item">发布</a>
+            <a href="#" th:href="@{/admin/blogs/input}" class="active m-theme-color item">发布</a>
             <a href="#" th:href="@{/admin/blogs}" class="item">列表</a>
         </div>
     </div>
@@ -63,7 +63,7 @@
             <input type="hidden" name="id" th:value="*{id}"/>
             <div class="required field">
                 <div class="ui left labeled input">
-                    <div class="ui selection dropdown compact blue basic label">
+                    <div class="ui selection dropdown compact pink basic label">
                         <!-- 设置value可以默认选中与默认值相同的选项 -->
                         <input type="hidden" th:value="*{flag}" name="flag" data-value="原创" />
                         <i class="dropdown icon"></i>
@@ -87,7 +87,7 @@
             <div class="two fields">
                 <div class="required field">
                     <div class="ui left labeled input action">
-                        <label class="ui compact blue basic label">分类</label>
+                        <label class="ui compact pink basic label">分类</label>
                         <div class="ui fluid search selection dropdown">
                             <input type="hidden" name="typeId" th:value="*{typeId}"/>
                             <i class="dropdown icon"></i>
@@ -103,7 +103,7 @@
 
                 <div class="field">
                     <div class="ui left labeled input action">
-                        <label class="ui compact blue basic label">标签</label>
+                        <label class="ui compact pink basic label">标签</label>
                         <!-- 标签设置多选，同时可以进行搜索，按照名称或data-value -->
                         <div id="tag-dropdown" class="ui selection multiple search dropdown fluid">
                             <input type="hidden" name="tagIds" th:value="*{tagIds}"/>
@@ -121,7 +121,7 @@
 
             <div class="required field">
                 <div class="ui left labeled input">
-                    <label class="ui blue basic label">首图</label>
+                    <label class="ui pink basic label">首图</label>
                     <input type="text" name="firstPicture" th:value="*{firstPicture}" placeholder="首图引用地址"/>
                 </div>
             </div>
@@ -166,7 +166,7 @@
                 <!-- type如果不传值，默认提交表单submit -->
                 <button type="button" class="ui button m-margin-small" onclick="window.history.go(-1)">返回</button>
                 <button type="button" id="btnSave" class="ui secondary button m-margin-small">保存</button>
-                <button type="button" id="btnPublish" class="ui blue button m-margin-small">发布</button>
+                <button type="button" id="btnPublish" class="ui pink button m-margin-small">发布</button>
             </div>
         </form>
     </div>
@@ -251,7 +251,7 @@
             },
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "/admin/uploadfile"
+            imageUploadURL : "/admin/uploadfile"    //后台处理
         });
     });
 

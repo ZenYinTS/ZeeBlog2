@@ -1,12 +1,14 @@
-package com.zeecode.blog.web.admin;
+package com.zeecode.blog.controller.admin;
 
-import com.zeecode.blog.po.Blog;
-import com.zeecode.blog.po.BlogQuery;
-import com.zeecode.blog.po.User;
+import com.zeecode.blog.pojo.Blog;
+import com.zeecode.blog.pojo.BlogQuery;
+import com.zeecode.blog.pojo.User;
 import com.zeecode.blog.service.BlogService;
 import com.zeecode.blog.service.TagService;
 import com.zeecode.blog.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -32,7 +34,8 @@ public class BlogController {
     private TypeService typeService;
     @Autowired
     private TagService tagService;
-
+    @Value("${serurl}")
+    private String serurl;
 
     @GetMapping("/blogs")
     public String blogs(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
@@ -108,6 +111,7 @@ public class BlogController {
     public @ResponseBody
     Map<String,Object> demo(@RequestParam(value = "editormd-image-file", required = false) MultipartFile file, HttpServletRequest request) {
         Map<String,Object> resultMap = new HashMap<String,Object>();
+
         //保存
         try {
             //选定要存放图片位置的路径
@@ -119,7 +123,7 @@ public class BlogController {
             resultMap.put("success", 1);
             resultMap.put("message", "上传成功！");
             //这里的url是点了上传图片后，回显在editormd上的路径
-            resultMap.put("url","http://127.0.0.1:8080/img/upload/"+file.getOriginalFilename());
+            resultMap.put("url","http://"+serurl+"/img/upload/"+file.getOriginalFilename());
         } catch (Exception e) {
             resultMap.put("success", 0);
             resultMap.put("message", "上传失败！");

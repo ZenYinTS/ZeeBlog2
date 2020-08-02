@@ -1,7 +1,7 @@
 package com.zeecode.blog.service;
 
 import com.zeecode.blog.dao.CommentRepository;
-import com.zeecode.blog.po.Comment;
+import com.zeecode.blog.pojo.Comment;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

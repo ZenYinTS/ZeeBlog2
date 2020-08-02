@@ -2,9 +2,9 @@ package com.zeecode.blog.service;
 
 import com.zeecode.blog.NotFoundException;
 import com.zeecode.blog.dao.BlogRepository;
-import com.zeecode.blog.po.Blog;
-import com.zeecode.blog.po.BlogQuery;
-import com.zeecode.blog.po.Type;
+import com.zeecode.blog.pojo.Blog;
+import com.zeecode.blog.pojo.BlogQuery;
+import com.zeecode.blog.pojo.Type;
 import com.zeecode.blog.util.MarkdownUtils;
 import com.zeecode.blog.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;

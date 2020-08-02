@@ -24,7 +24,7 @@ public class LogAspect {
     // execution中的内容表示拦截哪些类，格式：[访问修饰符（public.private） 返回值 包名.包名.类名.方法名（参数列表）]
     //访问修饰符可以省略，下面的第一个*是指方法返回值
     //切面是切割请求，web包下的所有类发送请求进行切面
-    @Pointcut("execution(* com.zeecode.blog.web.*.*(..))")
+    @Pointcut("execution(* com.zeecode.blog.controller.*.*(..))")
     public void log(){}
 
     //在切入点前执行

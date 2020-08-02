@@ -11,21 +11,34 @@
 </head>
 <body>
 <!--导航-->
-<nav  th:fragment="menu(n)" class="ui segment attached m-padded-tb-mini m-shadow-small m-background-color">
+<nav  th:fragment="menu(n)" class="ui segment attached m-padded-tb-mini m-background-color">
     <!-- 设计logo，太靠前，将菜单容器放入容器内 -->
     <div class="ui container">
-        <div class="ui inverted secondary menu stackable">
+        <div class="ui secondary menu stackable">
             <!-- 指定为菜单项item,m-item无意义，为了后续获取 -->
-            <h2 class="ui m-white header item">管理后台</h2>
-            <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'">博客<i class="small file alternate outline icon m-padded-lr-small"></i></a>
-            <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'">分类<i class="small idea icon m-padded-lr-small"></i></a>
-            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'">标签<i class="small tags icon m-padded-lr-small"></i></a>
+            <a href="/admin/blogs" th:href="@{/admin/blogs}"><h2 class="ui m-theme-color header item">
+                <img src="../static/images/icon.png" th:src="@{/images/icon.png}"
+                     style="width: 40px !important;height: 40px !important;">
+                &nbsp;管理后台
+            </h2></a>
+            <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'">
+                <i class="small file alternate outline icon m-margin-lr-small m-theme-color"></i>
+                <span class="m-theme-color" style="font-weight: bolder">博客</span>
+            </a>
+            <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide m-theme-color" th:classappend="${n==2} ? 'active'">
+                <i class="small idea icon m-margin-lr-small"></i>
+                <span class="m-theme-color" style="font-weight: bolder">分类</span>
+            </a>
+            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'">
+                <i class="small tags icon m-margin-lr-small m-theme-color"></i>
+                <span class="m-theme-color" style="font-weight: bolder">标签</span>
+            </a>
             <div class="right menu m-mobile-hide">
                 <div class="ui dropdown item">
                     <div class="text">
                         <img class="ui avatar image" src="https://picsum.photos/id/1/100/100"
                         th:src="@{${session.user.avatar}}"/>
-                        <span th:text="@{${session.user.nickname}}">123</span>
+                        <span th:text="@{${session.user.nickname}}" class="m-theme-color" style="font-weight: bolder">123</span>
                     </div>
                     <i class="dropdown icon"></i>
 
@@ -37,7 +50,7 @@
         </div>
     </div>
     <!--menu toggle没意义，类似于加id，方便script获取样式-->
-    <a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show">
+    <a href="#" class="ui menu toggle m-background-color icon button m-top-right m-mobile-show">
         <i class="sidebar icon"></i>
     </a>
 </nav>
@@ -45,7 +58,7 @@
 <!-- 底部footer -->
 <footer style="height: 50px !important;" th:fragment="footer" class="ui m-background-color vertical segment m-opacity-mini">
     <div class="ui center aligned container">
-        <p class="m-text-thin m-text-lined m-opacity-tiny m-word-spacing" th:text="#{index.copyright}">Copyright © 2020 ZeeCodeBlog Designed by ZenYinTS</p>
+        <p class="m-text-thin m-text-lined m-opacity-tiny m-word-spacing" th:text="#{index.copyright}">Copyright © 2020 RabbitNest Designed by ZenYinTS</p>
     </div>
 </footer>
 

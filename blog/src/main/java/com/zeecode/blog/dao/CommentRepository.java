@@ -1,6 +1,6 @@
 package com.zeecode.blog.dao;
 
-import com.zeecode.blog.po.Comment;
+import com.zeecode.blog.pojo.Comment;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 

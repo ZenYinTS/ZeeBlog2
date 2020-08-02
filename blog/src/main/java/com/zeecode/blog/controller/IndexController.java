@@ -1,8 +1,5 @@
-package com.zeecode.blog.web;
+package com.zeecode.blog.controller;
 
-import com.zeecode.blog.po.Blog;
-import com.zeecode.blog.po.Tag;
-import com.zeecode.blog.po.Type;
 import com.zeecode.blog.service.BlogService;
 import com.zeecode.blog.service.TagService;
 import com.zeecode.blog.service.TypeService;
@@ -19,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class IndexController {

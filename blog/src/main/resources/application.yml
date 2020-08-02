@@ -5,3 +5,4 @@ spring:
     active: dev
 
 comment.avatar: /images/avatar.png
+serurl: 106.15.92.173

@@ -1,6 +1,6 @@
 package com.zeecode.blog.service;
 
-import com.zeecode.blog.po.Type;
+import com.zeecode.blog.pojo.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

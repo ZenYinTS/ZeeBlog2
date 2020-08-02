@@ -42,8 +42,8 @@
     </nav>
 
     <!-- 中间内容 -->
-    <div class="m-padded-tb-large m-opacity animate__animated animate__fadeIn">
-        <div class="ui m-container">
+    <div class="m-padded-tb-large animate__animated animate__fadeIn">
+        <div class="ui m-container m-opacity">
             <!-- 头部 -->
             <div class="ui segment top attached">
                 <div class="ui horizontal link list">
@@ -51,18 +51,18 @@
                         <!--头像-->
                         <img th:src="@{${blog.user.avatar}}" src="https://picsum.photos/id/1/100/100" alt="" class="ui avatar image" />
                         <div class="content">
-                            <a th:text="${blog.user.nickname}" th:href="@{/about}" href="#" class="header">臻尹</a>
+                            <a th:text="${blog.user.nickname}" th:href="@{/about}" href="#" class="m-theme-color">臻尹</a>
                         </div>
                     </div>
                     <div class="item">
-                        <i class="calendar icon"></i>
+                        <i class="calendar icon m-theme-color"></i>
                         <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">
                          2017-10-01
                         </span>
                     </div>
                     <div class="item">
-                        <i class="eye icon"></i>
-                        <span th:text="${blog.views}">2342</span>
+                        <i class="fire icon m-theme-color"></i>
+                        <span th:text="${blog.views}">2342</span>&nbsp;&nbsp;℃
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@
                 </div>
                 <!-- 标签 -->
                 <div class="m-padded-lr-responsive">
-                    <div th:each="tag : ${blog.tags}" th:text="${tag.name}" class="ui blue basic left pointing label m-margin m-padded">标签</div>
+                    <div th:each="tag : ${blog.tags}" th:text="${tag.name}" class="ui pink basic left pointing label m-margin">标签</div>
                 </div>
                 <!-- 赞赏 -->
                 <div class="ui center aligned basic segment" th:if="${blog.appreciation}">
@@ -222,11 +222,7 @@
                 <div id="comment-container" class="ui segment m-margin">
                     <div th:fragment="commentList">
                         <div class="ui threaded comments m-margin" style="max-width: 100%">
-                            <h3 class="ui dividing header">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">评论</font>
-                                </font>
-                            </h3>
+                            <h3 class="ui dividing header m-theme-color">评论</h3>
                             <div class="comment" th:each="comment : ${comments}">
                                 <a class="avatar">
                                     <img th:src="@{${comment.avatar}}" style="max-width: 100px" src="https://picsum.photos/id/1/100/100">
@@ -234,7 +230,7 @@
                                 <div class="content">
                                     <a class="author">
                                         <span th:text="${comment.nickname}">马特</span>
-                                        <div  th:if="${comment.adminComment}" class="ui mini basic blue left pointing label m-padded-mini">博主</div>
+                                        <div  th:if="${comment.adminComment}" class="ui mini basic pink left pointing label m-padded-mini">博主</div>
                                     </a>
                                     <div class="metadata">
                                     <span class="date"
@@ -264,9 +260,9 @@
                                         <div class="content">
                                             <a class="author">
                                                 <span th:text="${reply.nickname}">马特</span>
-                                                <div th:if="${reply.adminComment}" class="ui mini basic blue left pointing label m-padded-mini">博主</div>
+                                                <div th:if="${reply.adminComment}" class="ui mini basic pink left pointing label m-padded-mini">博主</div>
                                                 &nbsp;
-                                                <span th:text="|@ ${reply.parentComment.nickname}|" style="color: #268bd2">@ 小白</span>
+                                                <span th:text="|@ ${reply.parentComment.nickname}|" style="color: #dc147f">@ 小白</span>
                                             </a>
                                             <div class="metadata">
                                     <span class="date"

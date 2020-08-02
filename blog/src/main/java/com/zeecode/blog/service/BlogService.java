@@ -1,7 +1,7 @@
 package com.zeecode.blog.service;
 
-import com.zeecode.blog.po.Blog;
-import com.zeecode.blog.po.BlogQuery;
+import com.zeecode.blog.pojo.Blog;
+import com.zeecode.blog.pojo.BlogQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -1,8 +1,6 @@
-package com.zeecode.blog.web;
+package com.zeecode.blog.controller;
 
-import com.zeecode.blog.po.Blog;
-import com.zeecode.blog.po.BlogQuery;
-import com.zeecode.blog.po.Tag;
+import com.zeecode.blog.pojo.Tag;
 import com.zeecode.blog.service.BlogService;
 import com.zeecode.blog.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +30,7 @@ public class TagShowController {
         List<Tag> tags = tagService.listTagTop(1000);
 
         //从首页点进来的不存在id，即id为-1
-        if (id==-1){
+        if (id==-1&&tags.size()!=0){
             id=tags.get(0).getId();
         }
         model.addAttribute("tags",tags);

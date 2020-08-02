@@ -44,7 +44,7 @@
         <div class="ui container">
             <div class="right menu">
                 <a href="#" th:href="@{/admin/types/input}" class="item">新增</a>
-                <a href="#" th:href="@{/admin/types}" class="active blue item">列表</a>
+                <a href="#" th:href="@{/admin/types}" class="active m-theme-color item">列表</a>
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
                     <td th:text="${type.name}">分类1</td>
                     <td>
                         <!--                            /admin/types/{id}/input(id=${type.id})的例子/admin/types/1/input-->
-                        <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}" class="mini basic ui blue button">编辑</a>
+                        <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}" class="mini basic ui teal button">编辑</a>
                         <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.id})}" class="mini basic ui red button">删除</a>
                     </td>
                 </tr>
@@ -84,7 +84,7 @@
                         <a th:href="@{/admin/types(page=${page.number}+1)}" class="item" th:unless="${page.last}" >下一页</a>
                     </div>
                     <!--                        新增页面是一个新的页面，无需id-->
-                    <a th:href="@{/admin/types/input}" class="ui mini basic blue button right floated">新增</a>
+                    <a th:href="@{/admin/types/input}" class="ui mini basic teal button right floated">新增</a>
                 </th>
                 </tfoot>
             </table>

@@ -39,8 +39,8 @@
     </nav>
 
     <!-- 中间内容 -->
-    <div class="m-container m-padded-tb-massive m-opacity">
-        <div class="ui container">
+    <div id="waypoint" class="m-container m-padded-tb-massive">
+        <div class="ui container m-opacity">
             <div class="ui stackable grid">
                 <div class="seven wide column animate__animated animate__bounceInLeft">
                     <img src="../static/images/favor.jpg" th:src="@{#{about.avatar}}" alt="" class="ui rounded image" style="height: 300px;" />
@@ -58,15 +58,16 @@
                         </p>
                     </div>
                     <div class="ui attached segment">
-                        <div class="ui m-theme-color basic label m-margin-tb-tiny">编程</div>
-                        <div class="ui m-theme-color basic label m-margin-tb-tiny">学习</div>
+                        <div class="ui violet basic label m-margin-tb-tiny">编程</div>
+                        <div class="ui violet basic label m-margin-tb-tiny">学习</div>
+                        <div class="ui violet basic label m-margin-tb-tiny">动漫</div>
                     </div>
 
                     <div class="ui attached segment">
-                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny">Java</div>
-                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny">JavaScript</div>
-                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny">HTML</div>
-                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny">CSS</div>
+                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny" style="border: 1px solid #b13e37">Java</div>
+                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny" style="border: 1px solid #b13e37">JavaScript</div>
+                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny" style="border: 1px solid #b13e37">HTML</div>
+                        <div class="ui m-tech-tag-color basic label m-margin-tb-tiny" style="border: 1px solid #b13e37">Spring</div>
                     </div>
                     <div class="bottom ui attached segment">
                         <a href="https://github.com/ZenYinTS" class="ui circular icon button"><i class="github icon"></i></a>
@@ -86,10 +87,7 @@
     </div>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div th:replace="_fragments :: toTop"/>
     <!-- 底部footer -->
     <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive m-opacity-mini">
         <div class="ui center aligned container">

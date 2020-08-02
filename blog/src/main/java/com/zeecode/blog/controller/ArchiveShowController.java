@@ -1,4 +1,4 @@
-package com.zeecode.blog.web;
+package com.zeecode.blog.controller;
 
 import com.zeecode.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;

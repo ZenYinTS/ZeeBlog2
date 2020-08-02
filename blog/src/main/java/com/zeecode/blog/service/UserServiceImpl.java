@@ -1,7 +1,7 @@
 package com.zeecode.blog.service;
 
 import com.zeecode.blog.dao.UserRepository;
-import com.zeecode.blog.po.User;
+import com.zeecode.blog.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;

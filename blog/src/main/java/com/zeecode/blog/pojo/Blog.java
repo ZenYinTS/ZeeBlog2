@@ -1,4 +1,4 @@
-package com.zeecode.blog.po;
+package com.zeecode.blog.pojo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,7 +33,7 @@ public class Blog {
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
-    private String digest;    //博客简介
+    private String digest="";    //博客简介
 
     //Blog与Type是多对一的关系，所以Blog类中有一个Type对象
     @ManyToOne
@@ -53,7 +53,7 @@ public class Blog {
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "blog")
+    @OneToMany(mappedBy = "blog",cascade = CascadeType.REMOVE)
     private List<Comment> comments = new ArrayList<>();
 
 
