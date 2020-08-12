@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/admin")
@@ -116,14 +117,23 @@ public class BlogController {
         try {
             //选定要存放图片位置的路径
             File imageFolder= new File(request.getServletContext().getRealPath("/img/upload"));
-            File targetFile = new File(imageFolder,file.getOriginalFilename());
+            //获取文件的原始名称  1.jpg
+            String originalFilename  = file.getOriginalFilename();
+            //获取后缀名点的位置
+            int lastIndex = originalFilename.lastIndexOf(".");
+            //获取文件名 1
+            String fileName = originalFilename.substring(0,lastIndex);
+            //获取文件的后缀名 .jpg
+            String suffix = originalFilename.substring(lastIndex);
+            fileName = fileName+UUID.randomUUID()+suffix;
+            File targetFile = new File(imageFolder,fileName);
             if(!targetFile.getParentFile().exists())
                 targetFile.getParentFile().mkdirs();
             file.transferTo(targetFile);
             resultMap.put("success", 1);
             resultMap.put("message", "上传成功！");
             //这里的url是点了上传图片后，回显在editormd上的路径
-            resultMap.put("url","http://"+serurl+"/img/upload/"+file.getOriginalFilename());
+            resultMap.put("url","http://"+serurl+"/img/upload/"+fileName);
         } catch (Exception e) {
             resultMap.put("success", 0);
             resultMap.put("message", "上传失败！");

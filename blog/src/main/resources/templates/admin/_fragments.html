@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
     <title th:replace="${title}">博客详情</title>
+    <link rel="shortcut icon" href="../../static/images/rabbit_icon.ico" th:href="@{/images/rabbit_icon.ico}" />
+    <link rel="bookmark" href="../../static/images/rabbit_icon.ico" th:href="@{/images/rabbit_icon.ico}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
-    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
 </head>
 <body>
 <!--导航-->
@@ -57,8 +59,10 @@
 
 <!-- 底部footer -->
 <footer style="height: 50px !important;" th:fragment="footer" class="ui m-background-color vertical segment m-opacity-mini">
+    <!--鼠标点击特效-->
+    <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 999; pointer-events: none;"></canvas>
     <div class="ui center aligned container">
-        <p class="m-text-thin m-text-lined m-opacity-tiny m-word-spacing" th:text="#{index.copyright}">Copyright © 2020 RabbitNest Designed by ZenYinTS</p>
+        <p class="m-text-thin m-text-lined m-opacity-tiny m-word-spacing" th:text="#{index.copyright}">Copyright © 2020 RabbitCode Designed by ZenYinTS</p>
     </div>
 </footer>
 
@@ -66,6 +70,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+    <!--鼠标点击特效-->
+    <script src="../../static/js/mouse-click.js" th:src="@{/js/mouse-click.js}"></script>
 </th:block>
 </body>
 </html>

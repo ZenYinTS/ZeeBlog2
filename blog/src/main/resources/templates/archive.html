@@ -12,6 +12,8 @@
 </head>
 
 <body>
+<div id="aplayer"></div>
+
     <!--导航-->
     <nav th:replace="_fragments :: menu(4)" class="ui inverted segment attached m-padded-tb-mini m-opacity-mini m-shadow-small">
         <!-- 设计logo，太靠前，将菜单容器放入容器内 -->
@@ -63,10 +65,10 @@
                             <div>
                                 <time th:text="${#dates.format(blog.updateTime,'MM-dd')}">9月03</time>
                                 <div class="scientist">
-                                    <a th:href="@{/blog/{id}(id=${blog.id})}" href="#" target="_blank">
-                                        <span th:text="${blog.flag}"
-                                              class="ui left aligned orange basic label m-padded-mini m-text-thin">原创</span>
-                                        <h3 th:text="${blog.title}">博客1</h3>
+                                    <span th:text="${blog.flag}"
+                                          class="ui top left attached label basic orange m-padded-mini m-text-thin m-margin-lr-small">原创</span>
+                                    <a th:href="@{/blog/{id}(id=${blog.id})}" href="#" target="_blank" class="middle aligned">
+                                        <span th:text="${blog.title}" class="ui header">博客1</span>
                                     </a>
                                 </div>
                             </div>

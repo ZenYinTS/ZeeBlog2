@@ -53,8 +53,14 @@
 </div>
 
 <!-- 中间内容 -->
-<div class="m-padded-tb-large">
+<div class="m-padded-tb-large" >
     <div class="ui container">
+        <div id="saveMessage" style="visibility: hidden;color: white;
+        background: #f7c8d4;text-align: center;
+            width: 50%;padding: 5px;margin: 2px auto;" class="m-opacity">
+            <span id="time"></span>
+            自动保存成功！
+        </div>
         <form id="blog-form" action="#" th:action="@{/admin/blogs}"
               th:object="${blog}" method="post" class="ui form">
             <!--                发布赋值true，保存赋值false-->
@@ -164,7 +170,7 @@
 
             <div class="ui container right aligned">
                 <!-- type如果不传值，默认提交表单submit -->
-                <button type="button" class="ui button m-margin-small" onclick="window.history.go(-1)">返回</button>
+                <button type="button" class="ui button m-margin-small" onclick="window.history.go(-1);sessionStorage.clear();">返回</button>
                 <button type="button" id="btnSave" class="ui secondary button m-margin-small">保存</button>
                 <button type="button" id="btnPublish" class="ui pink button m-margin-small">发布</button>
             </div>
@@ -246,13 +252,47 @@
             tex: true,                   // 开启科学公式TeX语言支持，默认关闭
             flowChart : true,             // 开启流程图支持，默认关闭
             sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
-            toolbarIcons : function() {  //自定义工具栏，后面有详细介绍
+            toolbarIcons : function() {  //自定义工具栏
                 return editormd.toolbarModes['full']; // full, simple, mini
             },
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL : "/admin/uploadfile"    //后台处理
         });
+
+        //定时自动保存
+        setTimeout(function(){
+            //每隔2min执行一次
+            setInterval(function(){
+                save();
+                var date = new Date();
+                var time = date.toLocaleString( ); //获取日期与时间
+                $("#time").text(time);
+                document.getElementById("saveMessage").style.visibility="visible";
+                setTimeout(function() {
+                    document.getElementById("saveMessage").style.visibility="hidden";
+                },2000);
+            },300000);
+        });
+
+        //存储的数据显示
+        var title = $("[name='title']").val();
+        var content = $("[name='content']").val();
+        var firstPicture = $("[name='firstPicture']").val();
+        var digest = $("[name='digest']").val();
+
+        if (title==null||title.length==0){
+            $("[name='title']").val(sessionStorage.getItem("title"))
+        }
+        if (content==null||content.length==0){
+            $("[name='content']").val(sessionStorage.getItem("content"))
+        }
+        if (firstPicture==null||firstPicture.length==0){
+            $("[name='firstPicture']").val(sessionStorage.getItem("firstPicture"))
+        }
+        if (digest==null||digest.length==0){
+            $("[name='digest']").val(sessionStorage.getItem("digest"))
+        }
     });
 
     $('.menu.toggle').click(function () {
@@ -299,17 +339,30 @@
     $("#btnSave").click(function () {
         $("[name='published']").val(false);
         $("#blog-form").submit();
+        sessionStorage.clear();
     });
     $("#btnPublish").click(function () {
         $("[name='published']").val(true);
         $("#blog-form").submit();
+        sessionStorage.clear();
     });
 
     $('#tag-dropdown')
         .dropdown({
             allowAdditions: true
-        })
-    ;
+        });
+
+    function save() {
+        var title = $("[name='title']").val();
+        var content = $("[name='content']").val();
+        var firstPicture = $("[name='firstPicture']").val();
+        var digest = $("[name='digest']").val();
+
+        sessionStorage.setItem("title",title);
+        sessionStorage.setItem("content",content);
+        sessionStorage.setItem("firstPicture",firstPicture);
+        sessionStorage.setItem("digest",digest);
+    }
 </script>
 </body>
 

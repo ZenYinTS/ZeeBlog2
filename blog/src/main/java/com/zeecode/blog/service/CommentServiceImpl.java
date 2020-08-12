@@ -23,18 +23,19 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> listCommentByBlogId(Long blogId) {
         Sort sort = Sort.by("createTime");
         //获取所有父节点
-        List<Comment> comments = commentRepository.findByBlogIdAndParentCommentNull(blogId,sort);
+        List<Comment> comments = commentRepository.findByBlogIdAndParentCommentNull(blogId, sort);
         return eachComment(comments);
     }
+
 
     @Transactional
     @Override
     public Comment saveComment(Comment comment) {
         Long parentCommentId = comment.getParentComment().getId();
-        if (parentCommentId!=-1){    //回复评论，评论为子评论
+        if (parentCommentId != -1) {    //回复评论，评论为子评论
             //获取到父评论，设置为当前评论的父评论，建立上下级关系
             comment.setParentComment(commentRepository.findById(parentCommentId).orElse(null));
-        }else {
+        } else {
             comment.setParentComment(null);
         }
         comment.setCreateTime(new Date());
@@ -43,14 +44,15 @@ public class CommentServiceImpl implements CommentService {
 
     /**
      * 循环复制每个顶级评论节点
+     *
      * @param comments
      * @return
      */
-    private List<Comment> eachComment(List<Comment> comments){
+    private List<Comment> eachComment(List<Comment> comments) {
         List<Comment> commentsView = new ArrayList<>();
-        for (Comment comment:comments){
+        for (Comment comment : comments) {
             Comment c = new Comment();
-            BeanUtils.copyProperties(comment,c);    //避免对原始数据造成修改，导致数据在数据库中发生变化
+            BeanUtils.copyProperties(comment, c);    //避免对原始数据造成修改，导致数据在数据库中发生变化
             commentsView.add(c);
         }
         //合并评论的各层子代到第一级子代集合中（即子孙同级存放）
@@ -59,14 +61,13 @@ public class CommentServiceImpl implements CommentService {
     }
 
     /**
-     *
      * @param comments root根节点，blog不为空的对象集合
      * @return
      */
-    private void combineChildren(List<Comment> comments){
-        for (Comment comment:comments){
+    private void combineChildren(List<Comment> comments) {
+        for (Comment comment : comments) {
             List<Comment> replys = comment.getReplyComments();
-            for (Comment reply : replys){
+            for (Comment reply : replys) {
                 //循环迭代，找出子代，放入temReplys中
                 recursively(reply);
             }
@@ -82,18 +83,19 @@ public class CommentServiceImpl implements CommentService {
 
     /**
      * 递归迭代，剥洋葱
-     * @paranm comment  被迭代对象
+     *
      * @return
+     * @paranm comment  被迭代对象
      */
-    private void recursively(Comment comment){
+    private void recursively(Comment comment) {
         temReplys.add(comment);    //先将传入的子代节点存入子代集合中
-        if (comment.getReplyComments().size()>0){
+        if (comment.getReplyComments().size() > 0) {
             //存放子代的子代
             List<Comment> replys = comment.getReplyComments();
-            for (Comment reply:replys){
+            for (Comment reply : replys) {
                 temReplys.add(reply);
                 //若子代存在子代，则递归继续遍历
-                if (reply.getReplyComments().size()>0){
+                if (reply.getReplyComments().size() > 0) {
                     recursively(reply);
                 }
             }

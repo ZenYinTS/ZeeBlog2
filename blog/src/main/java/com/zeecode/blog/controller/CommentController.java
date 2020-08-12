@@ -1,4 +1,4 @@
-package com.zeecode.blog.controller.admin;
+package com.zeecode.blog.controller;
 
 import com.zeecode.blog.pojo.Comment;
 import com.zeecode.blog.pojo.User;

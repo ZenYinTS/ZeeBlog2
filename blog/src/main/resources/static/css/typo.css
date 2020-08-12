@@ -39,6 +39,7 @@
 /* 去除默认边框 */
 .typo fieldset, .typo img {
   border: 0;
+  max-width: 100% !important;
 }
 
 /* 块/段落引用 */
@@ -115,6 +116,7 @@
 /* 让链接在 hover 状态下显示下划线 */
 .typo a {
   color: #1abc9c;
+  word-wrap: break-word;    /*链接超过内容自动换行*/
 }
 
 .typo a:hover {
