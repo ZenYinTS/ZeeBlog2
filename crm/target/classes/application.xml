@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+
+    <!-- 扫描包，排除controller -->
+    <context:component-scan base-package="com.crm">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--  1. 配置数据连接池 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+        <property name="driverClass" value="${jdbc.driverClass}"></property>
+    </bean>
+
+    <!--  2. sessionFactory -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--  2.1 数据源引用 -->
+        <property name="dataSource" ref="ds"></property>
+        <!--  2.2 mybatis配置文件 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--  2.3 引入映射文件 -->
+        <property name="mapperLocations" value="classpath:com/crm/mapper/*.xml"></property>
+    </bean>
+
+    <!--  3. mapper接口的扫描器 -->
+    <mybatis-spring:scan base-package="com.crm.mapper"/>
+
+    <!--  4. 事务管理器 -->
+    <bean id="dtm" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="ds"></property>
+    </bean>
+
+    <!--  5. 事务增强、事务属性、事务建议 -->
+    <tx:advice id="myTx" transaction-manager="dtm">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="select*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="list*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="query*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 在beans中注册切面类 -->
+    <bean id="logUtils" class="com.crm.util.LogUtils"/>
+    <!--  6. AOP相关配置 -->
+    <aop:config>
+        <aop:pointcut id="txPoint" expression="execution(* com.crm.service.*Service.*(..))"/>
+        <aop:advisor advice-ref="myTx" pointcut-ref="txPoint"></aop:advisor>
+        <!-- 配置切面类 -->
+        <aop:aspect ref="logUtils">
+            <!-- 配置通知方法为writeLog()，是一个后置通知，切点指定为如下所示的表达式 -->
+            <aop:after method="writeLog" pointcut="execution(* com.crm.service.*Service.*(..))"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crm.mapper.DepartmentMapper">
+  <resultMap id="BaseResultMap" type="com.crm.domain.Department">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="state" jdbcType="BIT" property="state" />
+  </resultMap>
+
+  <!-- List&amp;lt;Department&amp;gt; queryForEmp(); -->
+  <select id="queryForEmp" resultType="com.crm.domain.Department">
+    select id,name from department;
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from department
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.crm.domain.Department" useGeneratedKeys="true">
+    insert into department (sn, name, manager_id, 
+      parent_id, state)
+    values (#{sn,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{manager.id,jdbcType=BIGINT},
+      #{parent.id,jdbcType=BIGINT}, #{state,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.crm.domain.Department">
+    update department
+    set sn = #{sn,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      manager_id = #{manager.id,jdbcType=BIGINT},
+      parent_id = #{parent.id,jdbcType=BIGINT},
+      state = #{state,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, sn, name, manager_id, parent_id, state
+    from department
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, sn, name, manager_id, parent_id, state
+    from department
+  </select>
+</mapper>

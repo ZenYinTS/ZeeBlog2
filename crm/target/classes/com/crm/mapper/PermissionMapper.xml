@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crm.mapper.PermissionMapper">
+  <resultMap id="BaseResultMap" type="com.crm.domain.Permission">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="resource" jdbcType="VARCHAR" property="resource" />
+  </resultMap>
+
+  <!-- List<String> queryPermissionByEid(Long eid); -->
+  <select id="queryPermissionByEid" resultType="java.lang.String">
+    select p.resource from permission p left join role_permission rp on p.id = rp.p_id
+    left join emp_role er on er.r_id = rp.r_id
+    where er.e_id = #{eid}
+  </select>
+
+  <!-- 高级查询 -->
+  <sql id="where_sql">
+    <where>
+      <if test="rid!=null">
+        id in (select p_id from role_permission where r_id = #{rid})
+      </if>
+    </where>
+  </sql>
+
+  <!--  Long queryPageCount(QueryObject qo);-->
+  <select id="queryPageCount" resultType="java.lang.Long">
+    select count(*) from permission
+    <include refid="where_sql"></include>
+  </select>
+
+  <!--  List<Permission> queryPage(QueryObject qo);-->
+  <select id="queryPage" resultType="com.crm.domain.Permission">
+    select id,sn,resource from permission
+    <include refid="where_sql"></include>
+    <if test="page!=null">
+      limit #{start},#{rows}
+    </if>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from permission
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.crm.domain.Permission" useGeneratedKeys="true">
+    insert into permission (sn, resource)
+    values (#{sn,jdbcType=VARCHAR}, #{resource,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.crm.domain.Permission">
+    update permission
+    set sn = #{sn,jdbcType=VARCHAR},
+      resource = #{resource,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, sn, resource
+    from permission
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, sn, resource
+    from permission
+  </select>
+</mapper>

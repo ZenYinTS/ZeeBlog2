@@ -1,0 +1,197 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style: none;
+}
+
+a {
+    color: #717171;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    width: 100%;
+    background: #FAFBFB url(../img/crm-bg.jpg) no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100% 700px;
+    color: #3A3A3A;
+    font-size: 12px;
+    font-family: '微软雅黑';
+    font-style: normal
+}
+
+#header {
+    width: 980px;
+    height: 100px;
+    margin: auto;
+    border-bottom: 1px solid #929291;
+}
+
+#header h1 {
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 28px;
+    line-height: 30px;
+    color: white;
+    float: left;
+}
+
+#header h1 img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#header h1 span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#header ul {
+    float: right;
+    color: white;
+}
+
+#header ul li {
+    float: left;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 100px;
+    transition: all 0.5s;
+}
+
+#header ul li a {
+    color: white;
+    font-weight: lighter;
+}
+
+#header ul li:hover a {
+    color: skyblue;
+}
+
+#con {
+    width: 980px;
+    height: 635px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#con .left {
+    width: 600px;
+    height: 500px;
+    float: left;
+    margin-top: 100px;
+}
+
+#con .left h2 {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#con .left > p {
+    width: 600px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #CECCC8;
+}
+
+#con .left > p span {
+    color: #C92133;
+}
+
+#con .left .icon {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+#con .left .icon dl {
+    float: left;
+    width: 170px;
+    margin: 10px;
+    text-align: center;
+}
+
+#con .left .icon dl dd {
+    margin-top: 10px;
+}
+
+#con .left .icon dl h3 {
+    color: white;
+    font-weight: normal;
+}
+
+#con .left .icon dl:nth-of-type(3) dt {
+    height: 60px;
+    color: #1163A8;
+    font-size: 32px;
+    line-height: 120px;
+    height: 120px
+}
+
+#con .left .icon dl p {
+    margin-top: 10px;
+    color: #CECCC8;
+}
+
+#con .right {
+    float: right;
+    margin-top: 100px;
+    margin-right: 20px;
+}
+
+#con .right input {
+    display: block;
+    line-height: 30px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 20px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-right: 10px;
+    padding-left: 10px
+}
+
+#con .right input:nth-of-type(3) {
+    width: 310px;
+    color: white;
+    background: red;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#footer {
+    width: 980px;
+    overflow: hidden;
+    margin: auto;
+}
+
+#footer p {
+    font-size: 24px;
+    color: #323130;
+    text-align: center;
+    width: 980px;
+}
+
+#footer .detail {
+    margin-top: 20px;
+}
+
+#footer .detail dl {
+    float: left;
+    width: 30%;
+    margin: 10px;
+    overflow: hidden;
+}
+
+#footer .detail dl dt {
+    font-size: 16px;
+    margin-bottom: 10px
+}
+
+#footer .detail dl dd {
+    line-height: 20px;
+}

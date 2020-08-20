@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crm.mapper.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.crm.domain.Employee">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="inputTime" jdbcType="TIMESTAMP" property="inputTime" />
+    <result column="state" jdbcType="BIT" property="state" />
+    <result column="admin" jdbcType="BIT" property="admin" />
+    <!-- 联合查询:返回单个记录，并加上前缀返回 -->
+    <association columnPrefix="d_" javaType="com.crm.domain.Department" property="dept">
+      <id column="id" property="id" />
+      <result column="name" property="name" />
+    </association>
+  </resultMap>
+
+  <!-- void deleteRelation(Long eid); -->
+  <delete id="deleteRelation">
+    delete from emp_role where e_id = #{eid}
+  </delete>
+
+  <!-- void insertRelation(Long eid,Long rid); -->
+  <insert id="insertRelation">
+    insert into emp_role(e_id,r_id) values (#{eid},#{rid})
+  </insert>
+
+  <!-- void updateState(Long id); -->
+  <update id="updateState">
+    update employee set state = 0 where id = #{id}
+  </update>
+
+  <!-- 高级查询 -->
+  <sql id="where_sql">
+    <where>
+      <if test="keyWord!=null">
+        (e.username like concat('%',#{keyWord},'%')) or
+        (e.realname like concat('%',#{keyWord},'%')) or
+        (e.tel like concat('%',#{keyWord},'%'))
+      </if>
+    </where>
+
+  </sql>
+  <!--  Long getTotalForPage(EmployeeQueryObject queryObject); -->
+  <select id="getTotalForPage" resultType="java.lang.Long">
+    select count(*) from employee e
+    <include refid="where_sql" />
+  </select>
+
+  <!-- 必须要查询出id，否则在列表展示时会认定所有查询出的记录为同一个id，保存最后的记录 -->
+  <!-- PageResult queryForPage(EmployeeQueryObject queryObject) -->
+  <select id="queryForPage" resultMap="BaseResultMap">
+    select e.id,e.username,e.realname,e.tel,e.email,e.inputTime,e.state,e.admin,
+            d.id as d_id,d.name as d_name from employee e left join department d on e.dept_id = d.id
+            <include refid="where_sql" />
+            <if test="page!=null">
+              limit #{start},#{rows}
+            </if>
+  </select>
+
+<!--  Employee getEmpForLogin(String username,String password);-->
+  <select id="getEmpForLogin" resultMap="BaseResultMap">
+    select * from employee where username=#{username} and password = #{password}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from employee
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.crm.domain.Employee" useGeneratedKeys="true">
+    insert into employee (username, realname, password, 
+      tel, email, dept_id, 
+      inputTime, state, admin)
+    values (#{username,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{dept.id,jdbcType=BIGINT},
+      #{inputTime,jdbcType=TIMESTAMP}, #{state,jdbcType=BIT}, #{admin,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.crm.domain.Employee">
+    update employee
+    set username = #{username,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      dept_id = #{dept.id,jdbcType=BIGINT},
+      inputTime = #{inputTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, username, realname, password, tel, email, dept_id, inputTime, state, admin
+    from employee
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, username, realname, password, tel, email, dept_id, inputTime, state, admin
+    from employee
+  </select>
+</mapper>
