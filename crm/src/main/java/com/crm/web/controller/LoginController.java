@@ -1,10 +1,13 @@
 package com.crm.web.controller;
 
 import com.crm.domain.Employee;
+import com.crm.domain.Menu;
 import com.crm.domain.Permission;
 import com.crm.service.IEmployeeService;
+import com.crm.service.IMenuService;
 import com.crm.service.IPermissionService;
 import com.crm.util.AjaxResult;
+import com.crm.util.PermissionUtils;
 import com.crm.util.UserContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +28,9 @@ public class LoginController {
 
     @Autowired
     private IPermissionService permissionService;
+
+    @Autowired
+    private IMenuService menuService;
 
     @ResponseBody
     @RequestMapping(value="/login")
@@ -50,6 +56,12 @@ public class LoginController {
                 List<String> userPermission = permissionService.queryPermissionByEid(employee.getId());
                 //存入session中
                 request.getSession().setAttribute(UserContext.PERMISSIONINSESSION, userPermission);
+
+                //从数据库中获取菜单信息，并存入session中
+                List<Menu> menus = menuService.queryForRoot();
+                //传入的是引用，所以会对值造成影响
+                PermissionUtils.checkMenuPermission(menus);
+                request.getSession().setAttribute(UserContext.MENUINSESSION,menus);
                 result = new AjaxResult(true, "登陆成功！");
             }
         }else {

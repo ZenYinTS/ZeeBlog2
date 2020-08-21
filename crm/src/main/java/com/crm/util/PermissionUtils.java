@@ -1,8 +1,10 @@
 package com.crm.util;
 
 import com.crm.domain.Employee;
+import com.crm.domain.Menu;
 import com.crm.domain.Permission;
 import com.crm.service.IPermissionService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,31 @@ public class PermissionUtils {
     //被static修饰变量，是部署于任何实例化的对象拥有，
     // spring的依赖注入只能在对象层级上进行依赖注入，所以不能直接使用@Autowired标签进行注入。
     private static IPermissionService permissionService;
+
+    //系统菜单权限控制
+    //查询是否具有菜单权限，没有就删除
+    public static void checkMenuPermission(List<Menu> menus){
+        Menu menu;
+        //先遍历第一层，最外层的目录
+        //由于要删除集合中的元素，可以有两种操作：使用迭代器删除或者倒着删，这里采用倒着删【正着删会导致删除后元素下标指定的元素改变】
+        for (int i = menus.size()-1;i>=0;i--){
+            menu = menus.get(i);
+            //如果权限表达式为空，就认为该菜单项不需要进行权限控制，如果不为空就进行权限控制
+            if (StringUtils.isNotBlank(menu.getFunction())){
+                //查看用户是否具有该权限
+                List<Permission> userPermission = (List<Permission>) UserContext.get().getSession().getAttribute(UserContext.PERMISSIONINSESSION);
+                //不具有则删除
+                if (userPermission==null||!userPermission.contains(menu.getFunction())){
+                    menus.remove(i);
+                }
+            }
+
+            //查询子节点，递归
+            if (menu.getChildren()!=null&&menu.getChildren().size()>0){
+                checkMenuPermission(menu.getChildren());
+            }
+        }
+    }
 
     //解决方法： 在该变量的set方法上添加@Autowired注解，再将变量注入
     @Autowired

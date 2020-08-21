@@ -16,14 +16,7 @@
 
         <div data-options="region:'west'" class="easyui-accordion" style="width:300px;">
             <div title="菜单">
-                <ul class="easyui-tree">
-                    <li id="${ctp}/employee">
-                        <span>员工管理</span>
-                    </li>
-                    <li>
-                        <span>员工管理1</span>
-                    </li>
-                </ul>
+                <ul class="easyui-tree"></ul>
             </div>
             <div title="帮助">
                 <ul class="easyui-tree">

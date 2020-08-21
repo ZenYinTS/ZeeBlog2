@@ -1,16 +1,24 @@
-$(".easyui-tree").tree({
-    onClick:function(node){
-        addTab(node.text,node.id);
-    }
+$(function () {
+    $(".easyui-tree").tree({
+        url:"queryForMenu",
+        onClick:function(node){
+            addTab(node);
+        }
+    });
 });
 
-function addTab(title,url){
-    if ($('.easyui-tabs').tabs('exists', title)) {
-        $('.easyui-tabs').tabs('select',title)
+function addTab(node){
+    //将字符串转化为json数据
+    //在数据库中设置attributes属性值为{url:'employee'}，在函数中直接调用获取到的是字符串
+    if (node.attributes){
+        node.attributes = $.parseJSON(node.attributes);
+    }
+    if ($('.easyui-tabs').tabs('exists', node.text)) {
+        $('.easyui-tabs').tabs('select',node.text)
     } else {
-        var content = '<iframe src='+url+' style="height: 100%;width: 100%;" frameborder=0></iframe>';
+        var content = '<iframe src='+node.attributes.url+' style="height: 100%;width: 100%;" frameborder=0></iframe>';
         $('.easyui-tabs').tabs('add',{
-            title:title,
+            title:node.text,
             closable:true,
             content:content
         });
